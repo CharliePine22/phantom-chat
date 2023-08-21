@@ -1,2 +1,3 @@
 Phantom Chat
-"# phantom-chat" 
+
+- Based on the video game Persona 5!
