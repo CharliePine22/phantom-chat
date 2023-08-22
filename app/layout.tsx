@@ -4,8 +4,8 @@ import ActiveStatus from './components/ActiveStatus'
 import ToasterContext from './context/ToasterContext'
 
 export const metadata = {
-  title: 'Messenger',
-  description: 'Messenger Clone',
+  title: 'Phantom Chat',
+  description: 'Chat hub of the infamous Phantom Thieves',
 }
 
 export default function RootLayout({

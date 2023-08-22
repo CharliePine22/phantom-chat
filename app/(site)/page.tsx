@@ -14,12 +14,13 @@ const Auth = () => {
         lg:px-8 
         bg-gray-100
       "
+      style={{background: 'radial-gradient(red,black)'}}
     >
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <Image
-          height="48"
-          width="48"
-          className="mx-auto w-auto"
+          height="0"
+          width="225"
+          className="mx-auto"
           src="/images/logo.png"
           alt="Logo"
         />
@@ -30,8 +31,13 @@ const Auth = () => {
             text-3xl 
             font-bold 
             tracking-tight 
-            text-gray-900
+            text-white-900
           "
+          style={{
+            color: 'white',
+            textTransform: 'uppercase',
+            textShadow: '0 2px 4px black'
+          }}
           >
             Sign in to your account
         </h2>
