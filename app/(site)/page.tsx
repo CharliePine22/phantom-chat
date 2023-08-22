@@ -14,7 +14,8 @@ const Auth = () => {
         lg:px-8 
         bg-gray-100
       "
-      style={{background: 'radial-gradient(red,black)'}}
+      style={{background: 'url(/images/phantom-chat-bg.jpeg)', backgroundSize: '100% 100%'}}
+      // style={{background: 'radial-gradient(red,black)'}}
     >
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <Image
