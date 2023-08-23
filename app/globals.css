@@ -11,13 +11,20 @@ body,
 
 @font-face {
   font-family: 'Expose';
-  src: url('/fonts/Expose-Regular.woff2') format('woff2'),
-    url('/fonts/Expose-Regular.woff') format('woff');
+  src: url('../fonts/Expose-Regular.woff2') format('woff2'),
+    url('../fonts/Expose-Regular.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
-div label {
+.persona-glyphs {
+  letter-spacing: 0.075em !important;
   font-family: Expose !important;
+}
+
+.home form label {
+  font-family: Expose !important;
+  font-size: 1.5rem !important;
+  letter-spacing: 0.1rem;
 }

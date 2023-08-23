@@ -105,16 +105,26 @@ const AuthForm = () => {
   } 
 
   return ( 
-    <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+    <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md home"
+    style={{
+      paddingLeft: '2rem',
+      paddingRight: '2rem',
+
+    }}>
       <div 
         className="
         bg-white
           px-4
           py-8
           shadow
-          sm:rounded-lg
+          rounded-lg
           sm:px-10
         "
+        style={{
+          background: 'rgba(255,255,255,.75)',
+          backdropFilter: 'blur(3px)',
+          boxShadow: '0 0 4px red' 
+        }}
       >
         <form 
           className="space-y-6" 
@@ -136,7 +146,7 @@ const AuthForm = () => {
             errors={errors}
             required
             id="email" 
-            label="Email address" 
+            label="Email" 
             type="email"
           />
           <Input 
@@ -168,7 +178,7 @@ const AuthForm = () => {
               <div className="w-full border-t border-gray-300" />
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="bg-white px-2 text-gray-500">
+              <span className="px-2 text-gray-500">
                 Or continue with
               </span>
             </div>

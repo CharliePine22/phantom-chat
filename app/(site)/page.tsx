@@ -15,7 +15,6 @@ const Auth = () => {
         bg-gray-100
       "
       style={{background: 'url(/images/phantom-chat-bg.jpeg)', backgroundSize: '100% 100%'}}
-      // style={{background: 'radial-gradient(red,black)'}}
     >
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <Image
@@ -23,7 +22,10 @@ const Auth = () => {
           width="225"
           className="mx-auto"
           src="/images/logo.png"
-          alt="Logo"
+          alt="Logo" 
+          style={{
+            filter: 'drop-shadow(2px 4px 6px red)'
+          }}
         />
         <h2 
           className="
@@ -33,11 +35,13 @@ const Auth = () => {
             font-bold 
             tracking-tight 
             text-white-900
+            persona-glyphs
           "
           style={{
             color: 'white',
             textTransform: 'uppercase',
-            textShadow: '0 2px 4px black'
+            textShadow: '0 2px 4px black',
+            fontSize: '2.175rem'
           }}
           >
             Sign in to your account
