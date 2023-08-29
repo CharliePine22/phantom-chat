@@ -1,7 +1,23 @@
+"use client"
+import {useState} from 'react'
 import Image from "next/image";
 import AuthForm from "./components/AuthForm";
+import {BsSun, BsMoon} from 'react-icons/bs'
+// import {changeTheme} from "./components/ThemeChange";
+
+let currentTheme = 'day';
+const changeTheme = () => {
+  const [theme, setTheme] = useState(currentTheme);
+  const toggleTheme = (): void => {
+    if(theme == 'day') setTheme('night');
+    else setTheme('day');
+  }
+  return {theme, toggleTheme};
+}
 
 const Auth = () => {
+  const {theme, toggleTheme} = changeTheme();
+  console.log(theme);
   return (
     <div 
       className="
@@ -14,12 +30,14 @@ const Auth = () => {
         lg:px-8 
         bg-gray-100
       "
-      style={{background: 'url(/images/phantom-chat-bg.jpeg)', backgroundSize: '100% 100%'}}
+      style={{backgroundImage: theme == 'night' ? 'url(/images/phantom-chat-bg.jpeg)' : 'url(/images/p5-light-bg.webp)', backgroundSize: '100% 100%' }}
     >
+     {theme == 'day' ? <BsMoon className='absolute top-5 right-5 text-3xl text-slate-50 cursor-pointer' onClick={() => toggleTheme()} />
+      : <BsSun className='absolute top-5 right-5 text-2xl text-slate-50 cursor-pointer' onClick={() => toggleTheme()} />}
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <Image
           height="0"
-          width="225"
+          width="200"
           className="mx-auto"
           src="/images/logo.png"
           alt="Logo" 

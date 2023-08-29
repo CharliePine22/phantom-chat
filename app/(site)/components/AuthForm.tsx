@@ -105,7 +105,7 @@ const AuthForm = () => {
   } 
 
   return ( 
-    <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md home"
+    <div className="mt-6 sm:mt-8 sm:mx-auto sm:w-full sm:max-w-md home"
     style={{
       paddingLeft: '2rem',
       paddingRight: '2rem',
@@ -115,7 +115,8 @@ const AuthForm = () => {
         className="
         bg-white
           px-4
-          py-8
+          py-4
+          sm:py-8
           shadow
           rounded-lg
           sm:px-10

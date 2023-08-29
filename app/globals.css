@@ -19,12 +19,12 @@ body,
 }
 
 .persona-glyphs {
-  letter-spacing: 0.075em !important;
+  letter-spacing: 0.175em !important;
   font-family: Expose !important;
 }
 
 .home form label {
   font-family: Expose !important;
-  font-size: 1.5rem !important;
-  letter-spacing: 0.1rem;
+  font-size: 1.3rem !important;
+  letter-spacing: 0.115rem;
 }
