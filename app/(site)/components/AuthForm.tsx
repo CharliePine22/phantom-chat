@@ -115,7 +115,7 @@ const AuthForm = () => {
         className="
         bg-white
           px-4
-          py-4
+          py-6
           sm:py-8
           shadow
           rounded-lg
