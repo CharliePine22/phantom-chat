@@ -1,9 +1,8 @@
 "use client"
-import {useState} from 'react'
+import { useState } from 'react'
 import Image from "next/image";
 import AuthForm from "./components/AuthForm";
-import {BsSun, BsMoon} from 'react-icons/bs'
-// import {changeTheme} from "./components/ThemeChange";
+import { BsSun, BsMoon, BsSunFill, BsMoonFill } from 'react-icons/bs'
 
 let currentTheme = 'day';
 const useChangeTheme = () => {
@@ -29,10 +28,10 @@ const Auth = () => {
         lg:px-8 
         bg-gray-100
       "
-      style={{backgroundImage: theme == 'night' ? 'url(/images/phantom-chat-bg.jpeg)' : 'url(/images/p5-light-bg.webp)', backgroundSize: '100% 100%' }}
+      style={{backgroundImage: theme == 'night' ? 'url(/images/phantom-chat-bg.jpeg)' : 'url(/images/p5-light-bg.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
-     {theme == 'day' ? <BsMoon className='absolute top-5 right-5 text-3xl text-slate-50 cursor-pointer' onClick={() => toggleTheme()} />
-      : <BsSun className='absolute top-5 right-5 text-3xl text-slate-50 cursor-pointer' onClick={() => toggleTheme()} />}
+     {theme == 'day' ? <BsMoonFill className='absolute top-5 right-5 text-3xl text-slate-50 cursor-pointer drop-shadow-[0_2px_4px_rgba(0,0,0,1)] hover:text-[#F5F3CE]' onClick={() => toggleTheme()} />
+      : <BsSunFill className='absolute top-5 right-5 text-3xl text-slate-50 cursor-pointer drop-shadow-[0_2px_4px_rgba(0,0,0,1)] hover:text-[#F28C38]' onClick={() => toggleTheme()} />}
       <div className="sm:mx-auto sm:w-full sm:max-w-lg">
         <Image
           height="0"

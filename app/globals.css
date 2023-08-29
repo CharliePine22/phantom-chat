@@ -18,9 +18,55 @@ body,
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'P5Menu';
+  src: url('../fonts/Persona5MenuFontPrototype-Regular.ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.persona-box-date {
+  background: white;
+  position: absolute;
+  top: -15px;
+}
+
 .persona-glyphs {
   letter-spacing: 0.175em !important;
   font-family: Expose !important;
+}
+
+.persona-IM {
+  font-family: Expose !important;
+  letter-spacing: 0.075em !important;
+}
+
+.persona-text-box {
+  margin: 0 auto 20px;
+  width: 420px;
+  max-width: 100%;
+  position: relative;
+}
+
+.persona-text-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  transform: skew(-15deg);
+  background: black;
+}
+
+.persona-text-box::before:hover {
+  background: #fe0000;
+}
+
+.persona-menu-font {
+  font-family: P5Menu !important;
 }
 
 .home form label {

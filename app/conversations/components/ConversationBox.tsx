@@ -65,24 +65,47 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
     return 'Started a conversation';
   }, [lastMessage]);
 
+  const convertNumberToDayOfWeek = (date: number) => {
+    switch(date){
+      case 0: 
+      return 'Su';
+      case 1:
+        return 'Mo';
+      case 2:
+        return 'Tu';
+      case 3:
+        return 'We';
+      case 4:
+        return 'Th';
+      case 5:
+        return 'Fr';
+      case 6:
+        return 'Sa';
+    }
+  }
+  const personaMonth = data?.lastMessageAt.getMonth() + 1
+  const personaDate = data?.lastMessageAt.getDate()
+  const personaDay = convertNumberToDayOfWeek(data?.lastMessageAt.getDay())
   return ( 
     <div
       onClick={handleClick}
       className={clsx(`
+      persona-text-box
         w-full 
         relative 
         flex 
         items-center 
         space-x-3 
         p-3 
-        hover:bg-neutral-100
-        rounded-lg
         transition
         cursor-pointer
         `,
-        selected ? 'bg-neutral-100' : 'bg-white'
+        // selected ? 'bg-neutral-800' : 'bg-neutral-950'
       )}
     >
+      <div className='persona-box-date'>
+        {data?.lastMessageAt && `${personaMonth} / ${personaDate} / ${personaDay}`}
+      </div>
       {data.isGroup ? (
         <AvatarGroup users={data.users} />
       ) : (
@@ -92,7 +115,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         <div className="focus:outline-none">
           <span className="absolute inset-0" aria-hidden="true" />
           <div className="flex justify-between items-center mb-1">
-            <p className="text-md font-medium text-gray-900">
+            <p className="text-md font-medium text-gray-300">
               {data.name || otherUser.name}
             </p>
             {lastMessage?.createdAt && (
@@ -110,9 +133,9 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
           <p 
             className={clsx(`
               truncate 
-              text-sm
+              text-[1.275rem]
               `,
-              hasSeen ? 'text-gray-500' : 'text-black font-medium'
+              hasSeen ? 'text-gray-500' : 'text-white font-medium'
             )}>
               {lastMessageText}
             </p>

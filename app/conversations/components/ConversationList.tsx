@@ -98,8 +98,15 @@ const ConversationList: React.FC<ConversationListProps> = ({
       `, isOpen ? 'hidden' : 'block w-full left-0')}>
         <div className="px-5">
           <div className="flex justify-between mb-4 pt-4">
-            <div className="text-2xl font-bold text-neutral-800">
-              Messages
+            <div className="text-2xl z-10 font-bold text-neutral-800 persona-IM -rotate-[26deg] text-[4rem] translate-y-[10px]">
+              <span className='text-[#FF0401]' style={{
+                filter: 'drop-shadow(2px -5px 0px black) drop-shadow(-5px 0px 0px black) drop-shadow(4px 5px 0px black) drop-shadow(-3px -1px 0px black)'
+              }} >I</span>
+              <span
+               style={{
+                filter: 'drop-shadow(2px -2px 0px black) drop-shadow(-4px 0px 0px black) drop-shadow(2px 6px 0px black) drop-shadow(3px -1px 0px black)'
+              }}
+              className='text-slate-50'>M</span>
             </div>
             <div 
               onClick={() => setIsModalOpen(true)} 
