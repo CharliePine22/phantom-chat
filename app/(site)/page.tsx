@@ -6,7 +6,7 @@ import {BsSun, BsMoon} from 'react-icons/bs'
 // import {changeTheme} from "./components/ThemeChange";
 
 let currentTheme = 'day';
-const changeTheme = () => {
+const useChangeTheme = () => {
   const [theme, setTheme] = useState(currentTheme);
   const toggleTheme = (): void => {
     if(theme == 'day') setTheme('night');
@@ -16,8 +16,7 @@ const changeTheme = () => {
 }
 
 const Auth = () => {
-  const {theme, toggleTheme} = changeTheme();
-  console.log(theme);
+  const {theme, toggleTheme} = useChangeTheme();
   return (
     <div 
       className="
@@ -33,8 +32,8 @@ const Auth = () => {
       style={{backgroundImage: theme == 'night' ? 'url(/images/phantom-chat-bg.jpeg)' : 'url(/images/p5-light-bg.webp)', backgroundSize: '100% 100%' }}
     >
      {theme == 'day' ? <BsMoon className='absolute top-5 right-5 text-3xl text-slate-50 cursor-pointer' onClick={() => toggleTheme()} />
-      : <BsSun className='absolute top-5 right-5 text-2xl text-slate-50 cursor-pointer' onClick={() => toggleTheme()} />}
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+      : <BsSun className='absolute top-5 right-5 text-3xl text-slate-50 cursor-pointer' onClick={() => toggleTheme()} />}
+      <div className="sm:mx-auto sm:w-full sm:max-w-lg">
         <Image
           height="0"
           width="200"
@@ -42,7 +41,8 @@ const Auth = () => {
           src="/images/logo.png"
           alt="Logo" 
           style={{
-            filter: 'drop-shadow(2px 4px 6px red)'
+            filter: 'drop-shadow(2px 4px 6px red)',
+            userSelect: 'none',
           }}
         />
         <h2 
