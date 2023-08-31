@@ -33,13 +33,13 @@ const MessageBox: React.FC<MessageBoxProps> = ({
   const avatar = clsx(isOwn && 'order-2');
   const body = clsx('flex flex-col gap-2', isOwn && 'items-end');
   const message = clsx(
-    'text-sm w-fit overflow-hidden', 
-    isOwn ? 'bg-sky-500 text-white' : 'bg-gray-100', 
+    'text-sm w-fit overflow-hidden text-white',
+    // isOwn ? 'bg-sky-500 text-white' : 'bg-gray-100', 
     data.image ? 'rounded-md p-0' : 'rounded-full py-2 px-3'
   );
 
   return ( 
-    <div className={container}>
+    <div className={container + ` persona-text-box ${isOwn ? 'message-right' : 'message-left'}`}>
       <div className={avatar}>
         <Avatar user={data.sender} />
       </div>

@@ -22,7 +22,7 @@ const MobileFooter = () => {
         z-40 
         flex 
         items-center 
-        bg-white 
+        bg-[#A40001]
         border-t-[1px] 
         lg:hidden
       "

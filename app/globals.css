@@ -27,9 +27,20 @@ body,
 }
 
 .persona-box-date {
-  background: white;
+  color: white;
   position: absolute;
   top: -15px;
+  font-family: P5Menu !important;
+}
+
+.persona-box-date span {
+  background-color: white;
+  color: black;
+  font-size: 1.4rem;
+}
+
+.persona-box-date span:last-of-type {
+  /* font-family: Expose !important; */
 }
 
 .persona-glyphs {
@@ -47,6 +58,7 @@ body,
   width: 420px;
   max-width: 100%;
   position: relative;
+  z-index: 0;
 }
 
 .persona-text-box::before {
@@ -59,10 +71,23 @@ body,
   z-index: -1;
   transform: skew(-15deg);
   background: black;
+  outline: 3px solid white;
 }
 
-.persona-text-box::before:hover {
+.persona-text-box:first-of-type {
+  margin-top: 15px;
+}
+
+.persona-text-box:hover > .inner-persona-box {
   background: #fe0000;
+}
+
+.message-left {
+  margin-left: 70px;
+}
+
+.message-right {
+  margin-right: 70px;
 }
 
 .persona-menu-font {

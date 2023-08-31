@@ -3,7 +3,7 @@
 import axios from "axios";
 import { signIn, useSession } from 'next-auth/react';
 import { useCallback, useEffect, useState } from 'react';
-import { BsGithub, BsGoogle  } from 'react-icons/bs';
+import { BsGithub, BsGoogle, BsFacebook  } from 'react-icons/bs';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { useRouter } from "next/navigation";
 
@@ -93,6 +93,7 @@ const AuthForm = () => {
 
     signIn(action, { redirect: false })
       .then((callback) => {
+        console.log(callback)
         if (callback?.error) {
           toast.error('Invalid credentials!');
         }
@@ -193,6 +194,10 @@ const AuthForm = () => {
             <AuthSocialButton 
               icon={BsGoogle} 
               onClick={() => socialAction('google')} 
+            />
+            <AuthSocialButton 
+              icon={BsFacebook} 
+              onClick={() => socialAction('facebook')} 
             />
           </div>
         </div>

@@ -104,14 +104,20 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
       )}
     >
       <div className='persona-box-date'>
-        {data?.lastMessageAt && `${personaMonth} / ${personaDate} / ${personaDay}`}
+        {data?.lastMessageAt && 
+        <div>
+          <span>{personaMonth} /</span>
+          <span>{personaDate}</span>
+          <span> {personaDay}</span>
+          </div>
+        }
       </div>
       {data.isGroup ? (
         <AvatarGroup users={data.users} />
       ) : (
         <Avatar user={otherUser} />
       )}
-      <div className="min-w-0 flex-1">
+      <div className="min-w-0 flex-1 inner-persona-box">
         <div className="focus:outline-none">
           <span className="absolute inset-0" aria-hidden="true" />
           <div className="flex justify-between items-center mb-1">
