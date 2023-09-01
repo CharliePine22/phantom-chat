@@ -124,7 +124,7 @@ const AuthForm = () => {
         "
         style={{
           background: 'rgba(255,255,255,.75)',
-          backdropFilter: 'blur(3px)',
+          backdropFilter: 'blur(2px)',
           boxShadow: '0 0 4px red' 
         }}
       >
