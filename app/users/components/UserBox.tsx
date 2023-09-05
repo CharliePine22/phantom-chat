@@ -34,25 +34,27 @@ const UserBox: React.FC<UserBoxProps> = ({
       <div
         onClick={handleClick}
         className="
-          w-full 
+          bg-transparent
           relative 
           flex 
-          items-center 
+          items-center
+          flex-col
           space-x-3 
-          bg-white 
+          bg-black
           p-3 
-          hover:bg-neutral-100
           rounded-lg
           transition
           cursor-pointer
+          my-4
+          persona-avatar-box
         "
       >
         <Avatar user={data} />
-        <div className="min-w-0 flex-1">
+        <div className="min-w-0 flex-1" style={{marginLeft: 0}}>
           <div className="focus:outline-none">
             <span className="absolute inset-0" aria-hidden="true" />
             <div className="flex justify-between items-center mb-1">
-              <p className="text-sm font-medium text-gray-900">
+              <p className="text-sm font-medium text-black">
                 {data.name}
               </p>
             </div>

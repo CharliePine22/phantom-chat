@@ -32,21 +32,24 @@ const UserList: React.FC<UserListProps> = ({
         <div className="flex-col">
           <div 
             className="
-              text-2xl 
+              text-4xl 
               font-bold 
-              text-neutral-800 
+              text-white
               py-4
+              persona-menu-font
             "
           >
-            People
+            Friends
           </div>
         </div>
+        <div className='flex justify-evenly flex-wrap'>
         {items.map((item) => (
           <UserBox
             key={item.id}
             data={item}
           />
         ))}
+        </div>
       </div>
     </aside>
   );
