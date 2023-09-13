@@ -14,16 +14,22 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
   const isActive = members.indexOf(user?.email!) !== -1;
 
   return (
-    <div className="relative">
+    <div className="absolute h-full w-full">
       <div className="
         relative 
         inline-block 
         overflow-hidden
-        h-9 
-        w-9 
+        h-[90px]
+        w-[105px]
         md:h-11 
         md:w-11
+        transform skew-x-15 rotate-y-1
       ">
+        {/* position: absolute;
+    height: 90px;
+    width: 105px;
+    transform: perspective(12px) skewX(15deg) rotateY(0.5deg); */}
+
         <Image
           fill
           src={user?.image || '/images/placeholder.jpg'}

@@ -54,7 +54,7 @@ const UserBox: React.FC<UserBoxProps> = ({
           <div className="focus:outline-none">
             <span className="absolute inset-0" aria-hidden="true" />
             <div className="flex justify-between items-center mb-1">
-              <p className="text-sm font-medium text-black">
+              <p className="text-sm font-medium text-white">
                 {data.name}
               </p>
             </div>
