@@ -9,18 +9,18 @@ interface AvatarProps {
   user?: User;
 };
 
-const Avatar: React.FC<AvatarProps> = ({ user }) => {
+const UserAvatar: React.FC<AvatarProps> = ({ user }) => {
   const { members } = useActiveList();
   const isActive = members.indexOf(user?.email!) !== -1;
 
   return (
-    <div className="relative h-full w-full">
+    <div className="relative h-full">
       <div className="
         relative 
         inline-block 
         overflow-hidden
-        h-[90px]
-        w-[105px]
+        h-[50px]
+        w-[50px]
         md:h-11 
         md:w-11
         "
@@ -52,4 +52,4 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
   );
 }
 
-export default Avatar;
+export default UserAvatar;

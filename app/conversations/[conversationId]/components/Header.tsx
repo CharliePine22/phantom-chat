@@ -9,7 +9,7 @@ import { Conversation, User } from "@prisma/client";
 import useOtherUser from "@/app/hooks/useOtherUser";
 import useActiveList from "@/app/hooks/useActiveList";
 
-import Avatar from "@/app/components/Avatar";
+import UserAvatar from "@/app/components/UserAvatar";
 import AvatarGroup from "@/app/components/AvatarGroup";
 import ProfileDrawer from "./ProfileDrawer";
 
@@ -53,6 +53,7 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
         justify-between 
         items-center 
         shadow-sm
+        z-10
       "
     >
       <div className="flex gap-3 items-center">
@@ -72,7 +73,7 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
         {conversation.isGroup ? (
           <AvatarGroup users={conversation.users} />
         ) : (
-          <Avatar user={otherUser} />
+          <UserAvatar user={otherUser} />
         )}
         <div className="flex flex-col">
           <div>{conversation.name || otherUser.name}</div>

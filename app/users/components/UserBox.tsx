@@ -45,7 +45,7 @@ const UserBox: React.FC<UserBoxProps> = ({
           rounded-lg
           transition
           cursor-pointer
-          my-4
+          my-6
           persona-avatar-box
         "
       >
@@ -53,8 +53,8 @@ const UserBox: React.FC<UserBoxProps> = ({
         <div className="min-w-0 flex-1" style={{marginLeft: 0}}>
           <div className="focus:outline-none">
             <span className="absolute inset-0" aria-hidden="true" />
-            <div className="flex justify-between items-center mb-1">
-              <p className="text-sm font-medium text-white">
+            <div className="absolute bottom-[-32px] left-[8px] flex justify-center items-center mb-1 w-full">
+              <p className="text-2xl font-medium text-white whitespace-nowrap friend-name">
                 {data.name}
               </p>
             </div>

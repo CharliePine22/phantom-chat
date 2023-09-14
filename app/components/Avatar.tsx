@@ -12,10 +12,6 @@ interface AvatarProps {
 const Avatar: React.FC<AvatarProps> = ({ user }) => {
   const { members } = useActiveList();
   const isActive = members.indexOf(user?.email!) !== -1;
-  // transform
-  // perspective-[12px]
-  // skew-x-[15deg]
-  // rotate-y-[.5deg]
 
   return (
     <div className="avatar-wrapper absolute h-full w-full">
@@ -25,8 +21,6 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
         overflow-hidden
         h-[90px]
         w-[95px]
-        md:h-11 
-        md:w-11
         friend-avatar-box
         left-[9px]
         "

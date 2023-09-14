@@ -7,7 +7,7 @@ import { format } from "date-fns";
 import { useSession } from "next-auth/react";
 import { FullMessageType } from "@/app/types";
 
-import Avatar from "@/app/components/Avatar";
+import MessageBoxAvatar from "@/app/components/MessageBoxAvatar";
 import ImageModal from "./ImageModal";
 
 interface MessageBoxProps {
@@ -29,25 +29,26 @@ const MessageBox: React.FC<MessageBoxProps> = ({
     .map((user) => user.name)
     .join(', ');
 
-  const container = clsx('flex gap-3 p-4', isOwn && 'justify-end');
+  const container = clsx('flex gap-3 p-2', isOwn && 'justify-end');
   const avatar = clsx(isOwn && 'order-2');
-  const body = clsx('flex flex-col gap-2', isOwn && 'items-end');
+  const body = clsx('flex flex-col ', isOwn && 'items-end');
   const message = clsx(
-    'text-sm w-fit overflow-hidden text-white',
-    // isOwn ? 'bg-sky-500 text-white' : 'bg-gray-100', 
-    data.image ? 'rounded-md p-0' : 'rounded-full py-2 px-3'
+    'text-sm w-fit overflow-hidden',
+    isOwn ? 'text-black' : 'text-white', 
+    data.image ? 'rounded-md p-0' : 'rounded-full py-1 px-3'
   );
 
   return ( 
     <div className={container + ` persona-text-box ${isOwn ? 'message-right' : 'message-left'}`}>
-      <div className={avatar}>
-        <Avatar user={data.sender} />
-      </div>
+    {!isOwn && <div className={avatar}>
+        <MessageBoxAvatar user={data.sender} />
+      </div>}
       <div className={body}>
         <div className="flex items-center gap-1">
-          <div className="text-sm text-gray-500">
+         {/* Only show names in group chat */}
+          {/* <div className="text-sm text-gray-500">
             {data.sender.name}
-          </div>
+          </div> */}
           <div className="text-xs text-gray-400">
             {format(new Date(data.createdAt), 'p')}
           </div>
@@ -57,8 +58,8 @@ const MessageBox: React.FC<MessageBoxProps> = ({
           {data.image ? (
             <Image
               alt="Image"
-              height="288"
-              width="288"
+              height="150"
+              width="150"
               onClick={() => setImageModalOpen(true)} 
               src={data.image} 
               className="

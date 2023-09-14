@@ -90,7 +90,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
     <div
       onClick={handleClick}
       className={clsx(`
-      persona-text-box
+      conversation-box
         w-full 
         relative 
         flex 
@@ -123,15 +123,17 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         <div className="focus:outline-none">
           <span className="absolute inset-0" aria-hidden="true" />
           <div className="flex justify-between items-center mb-1">
-            <p className="text-md font-medium text-gray-300">
+            <p className="text-md font-medium">
               {data.name || otherUser.name}
             </p>
             {lastMessage?.createdAt && (
               <p 
                 className="
                   text-xs 
-                  text-gray-400 
                   font-light
+                  relative
+                  top-[-10px]
+                  right-[-7px]
                 "
               >
                 {format(new Date(lastMessage.createdAt), 'p')}
@@ -141,9 +143,9 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
           <p 
             className={clsx(`
               truncate 
-              text-[1.275rem]
+              text-[1.1rem]
               `,
-              hasSeen ? 'text-gray-500' : 'text-white font-medium'
+              hasSeen ? 'text-gray-400' : 'text-white font-medium'
             )}>
               {lastMessageText}
             </p>
