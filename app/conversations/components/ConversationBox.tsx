@@ -115,7 +115,9 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
       {data.isGroup ? (
         <AvatarGroup users={data.users} />
       ) : (
+        <div className='conversation-box-wrapper'>
         <Avatar user={otherUser} />
+        </div>
       )}
       <div className="min-w-0 flex-1 inner-persona-box">
         <div className="focus:outline-none">

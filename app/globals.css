@@ -26,6 +26,26 @@ body,
   font-display: swap;
 }
 
+.conversation-box-wrapper {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.conversation-box-wrapper .avatar-wrapper div {
+  transform: perspective(29px) skewX(-15deg) rotateY(0.2deg);
+  left: -24px;
+  height: 83px;
+  width: 95px;
+}
+
+/* Box Wrapper for the list of friends in the friends list section */
+.friend-avatar-box {
+  transform: perspective(15px) skewX(9deg) rotateY(0.5deg);
+}
+
+/* Date of last message in the conversations list page */
 .persona-box-date {
   color: white;
   position: absolute;
@@ -42,6 +62,7 @@ body,
 .persona-box-date span:last-of-type {
   /* font-family: Expose !important; */
 }
+/* Date of last messsage end */
 
 .persona-glyphs {
   letter-spacing: 0.175em !important;
@@ -53,38 +74,13 @@ body,
   letter-spacing: 0.075em !important;
 }
 
+/* Message box wrapper of the chat messages in the chat section */
 .persona-text-box {
   margin: 0 auto 30px;
   width: 420px;
   max-width: 100%;
   position: relative;
   z-index: 0;
-}
-
-.persona-avatar-box {
-  height: 110px;
-  width: 120px;
-}
-
-.persona-avatar-box:hover::before {
-  background: rgb(252, 36, 36);
-}
-
-.persona-avatar-box::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  transform: perspective(10px) skewX(15deg) rotateY(0.5deg);
-  background: black;
-  outline: 5px solid black;
-  border-top: 8px solid white;
-  border-right: 1px solid white;
-  border-bottom: 3px solid white;
-  border-left: 4px solid white;
 }
 
 .persona-text-box::before {
@@ -102,6 +98,40 @@ body,
 
 .persona-text-box:first-of-type {
   margin-top: 15px;
+}
+/* Message box wrapper of the chat messages end */
+
+/* Image styling for the avatars/avatar containers on the friends list page */
+.persona-avatar-box {
+  height: 110px;
+  width: 110px;
+}
+
+.persona-avatar-box:hover::before {
+  background: rgb(252, 36, 36);
+}
+
+.persona-avatar-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  transform: perspective(15px) skewX(9deg) rotateY(0.5deg);
+  background: black;
+  outline: 5px solid black;
+  box-shadow: -9px 6px 7px black;
+  border-top: 8px solid white;
+  border-right: 1px solid white;
+  border-bottom: 3px solid white;
+  border-left: 4px solid white;
+}
+/* Image styling for the avatars/avatar containers end */
+
+.inner-persona-box {
+  margin-right: 100px;
 }
 
 .persona-text-box:hover > .inner-persona-box {

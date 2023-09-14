@@ -28,7 +28,7 @@ const Auth = () => {
         lg:px-8 
         bg-gray-100
       "
-      style={{backgroundImage: theme == 'night' ? 'url(/images/phantom-chat-bg.jpeg)' : 'url(/images/phantom-chat-bg-light.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+      style={{backgroundImage: theme == 'night' ? 'url(/images/phantom-chat-bg.jpeg)' : 'url(/images/p5-light-bg.webp)', backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
      {theme == 'day' ? <BsMoonFill className='absolute top-5 right-5 text-3xl text-slate-50 cursor-pointer drop-shadow-[0_2px_4px_rgba(0,0,0,1)] hover:text-[#F5F3CE]' onClick={() => toggleTheme()} />
       : <BsSunFill className='absolute top-5 right-5 text-3xl text-slate-50 cursor-pointer drop-shadow-[0_2px_4px_rgba(0,0,0,1)] hover:text-[#F28C38]' onClick={() => toggleTheme()} />}

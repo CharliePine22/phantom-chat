@@ -42,7 +42,7 @@ const UserList: React.FC<UserListProps> = ({
             Friends
           </div>
         </div>
-        <div className='flex justify-evenly flex-wrap'>
+        <div className='flex justify-between flex-wrap'>
         {items.map((item) => (
           <UserBox
             key={item.id}

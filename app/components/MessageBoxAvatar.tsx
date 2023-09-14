@@ -9,16 +9,12 @@ interface AvatarProps {
   user?: User;
 };
 
-const Avatar: React.FC<AvatarProps> = ({ user }) => {
+const MessageBoxAvatar: React.FC<AvatarProps> = ({ user }) => {
   const { members } = useActiveList();
   const isActive = members.indexOf(user?.email!) !== -1;
-  // transform
-  // perspective-[12px]
-  // skew-x-[15deg]
-  // rotate-y-[.5deg]
 
   return (
-    <div className="avatar-wrapper absolute h-full w-full">
+    <div className="message-avatar-wrapper absolute h-full w-full">
       <div className="
         relative 
         inline-block 
@@ -27,7 +23,6 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
         w-[95px]
         md:h-11 
         md:w-11
-        friend-avatar-box
         left-[9px]
         "
       >
@@ -58,4 +53,4 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
   );
 }
 
-export default Avatar;
+export default MessageBoxAvatar;
