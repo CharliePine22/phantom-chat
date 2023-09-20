@@ -119,7 +119,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         <Avatar user={otherUser} />
         </div>
       )}
-      <div className="min-w-0 flex-1 inner-persona-box">
+      <div className={`min-w-0 flex-1 ${!data.isGroup && "inner-persona-box"}`} >
         <div className="focus:outline-none">
           <span className="absolute inset-0" aria-hidden="true" />
           <div className="flex justify-between items-center mb-1">
@@ -143,7 +143,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
           <p 
             className={clsx(`
               truncate 
-              text-[1.1rem]
+              text-[.9rem]
               `,
               hasSeen ? 'text-gray-400' : 'text-white font-medium'
             )}>

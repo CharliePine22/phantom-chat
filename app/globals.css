@@ -35,9 +35,10 @@ body,
 
 .conversation-box-wrapper .avatar-wrapper div {
   transform: perspective(29px) skewX(-15deg) rotateY(0.2deg);
-  left: -24px;
-  height: 78px;
+  left: -25px;
+  height: 74px;
   width: 95px;
+
 }
 
 /* Box Wrapper for the list of friends in the friends list section */
@@ -80,6 +81,11 @@ body,
   letter-spacing: 0.075em !important;
 }
 
+.persona-menu {
+  font-family: P5Menu !important;
+  letter-spacing: 0.075em !important;
+}
+
 /* Message box wrapper of the chat messages in the chat section */
 .persona-text-box {
   margin: 0 auto 30px;
@@ -109,7 +115,7 @@ body,
 /* Wrapper and styling of each ongoing conversation in users list */
 .conversation-box {
   margin: 0 auto 30px;
-  width: 420px;
+  width: 335px;
   max-width: 100%;
   position: relative;
   z-index: 0;
@@ -127,6 +133,7 @@ body,
   transform: skew(-15deg);
   background: black;
   outline: 3px solid white;
+  box-shadow: -4px 6px 11px black;
 }
 
 .conversation-box:hover {
@@ -192,15 +199,21 @@ body,
   margin-left: 70px;
 }
 
+.message-left > div > div span {
+  right: -15px;
+  top: -2px;
+}
+
 .message-right {
   margin-right: 70px;
+  min-width:100px;
 }
 
 .message-right::before {
-  /* background: white;
-  outline: 3px solid black; */
+  background: white;
+  outline: 3px solid black;
   content: '';
-  width: 0px;
+  /* width: 0px;
   height: 0px;
   position: absolute;
   border-left: 10px solid transparent;
@@ -209,7 +222,7 @@ body,
   border-bottom: 10px solid transparent;
   left: -19px;
   top: 6px;
-  outline: none;
+  outline: none; */
 }
 
 .persona-menu-font {
@@ -220,4 +233,9 @@ body,
   font-family: Expose !important;
   font-size: 1.3rem !important;
   letter-spacing: 0.115rem;
+}
+
+.settings-modal {
+  border: 1px solid black;
+  box-shadow: -1px 2px 8px black;
 }

@@ -50,6 +50,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
     setValue('image', result.info.secure_url, { 
       shouldValidate: true 
     });
+    console.log('TESTING UPLOAD')
   }
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
@@ -68,22 +69,22 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
     <Modal isOpen={isOpen} onClose={onClose}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="space-y-12">
-          <div className="border-b border-gray-900/10 pb-12">
+          <div className="border-b border-white/40 pb-12">
             <h2 
               className="
                 text-base 
                 font-semibold 
                 leading-7 
-                text-gray-900
+                text-white
               "
             >
               Profile
             </h2>
-            <p className="mt-1 text-sm leading-6 text-gray-600">
+            <p className="mt-1 text-sm leading-6 text-gray-200">
               Edit your public information.
             </p>
 
-            <div className="mt-10 flex flex-col gap-y-8">
+            <div className="mt-10 flex flex-col gap-y-8 text-white">
               <Input
                 disabled={isLoading}
                 label="Name" 
@@ -100,7 +101,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                     text-sm 
                     font-medium 
                     leading-6 
-                    text-gray-900
+                    text-white
                   "
                 >
                   Photo
@@ -116,7 +117,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                   <CldUploadButton 
                     options={{ maxFiles: 1 }} 
                     onUpload={handleUpload} 
-                    uploadPreset="pgc9ehd5"
+                    uploadPreset="hmkgjadi"
                   >
                     <Button
                       disabled={isLoading}

@@ -3,8 +3,15 @@
 import useConversation from "@/app/hooks/useConversation";
 import useRoutes from "@/app/hooks/useRoutes";
 import MobileItem from "./MobileItem";
+import UserAvatar from "../UserAvatar";
+import { User } from "@prisma/client";
 
-const MobileFooter = () => {
+
+interface MobileSidebarProps {
+  currentUser: User
+}
+
+const MobileFooter: React.FC<MobileSidebarProps> = ({currentUser}) => {
   const routes = useRoutes();
   const { isOpen } = useConversation();
 
@@ -36,6 +43,14 @@ const MobileFooter = () => {
           onClick={route.onClick}
         />
       ))}
+        <nav className="mt-4 flex flex-col justify-between items-center">
+          <div 
+            onClick={() => setIsOpen(true)} 
+            className="cursor-pointer hover:opacity-75 transition"
+          >
+            <UserAvatar user={currentUser} />
+          </div>
+        </nav>
     </div>
    );
 }

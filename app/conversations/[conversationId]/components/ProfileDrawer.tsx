@@ -9,7 +9,7 @@ import { format } from 'date-fns';
 import useOtherUser from '@/app/hooks/useOtherUser';
 import useActiveList from '@/app/hooks/useActiveList';
 
-import Avatar from '@/app/components/Avatar';
+import UserAvatar from '@/app/components/UserAvatar';
 import AvatarGroup from '@/app/components/AvatarGroup';
 import ConfirmModal from './ConfirmModal';
 
@@ -99,7 +99,7 @@ const ProfileDrawer: React.FC<ProfileDrawerProps> = ({
                       <div className="relative mt-6 flex-1 px-4 sm:px-6">
                         <div className="flex flex-col items-center">
                           <div className="mb-2">
-                            {data.isGroup ? <AvatarGroup users={data.users} /> : <Avatar user={otherUser} />}
+                            {data.isGroup ? <AvatarGroup users={data.users} /> : <UserAvatar user={otherUser} />}
                           </div>
                           <div>
                             {title}

@@ -81,17 +81,18 @@ const Form = () => {
           type="submit" 
           className="
             rounded-full 
-            p-2 
-            bg-sky-500 
+            p-0
             cursor-pointer 
-            hover:bg-sky-600 
+            hover:text-sky-600 
             transition
+            w-20
           "
         >
-          <HiPaperAirplane
+          {/* <HiPaperAirplane
             size={18}
             className="text-white"
-          />
+          /> */}
+          <p className='persona-IM text-2xl'>Send</p>
         </button>
       </form>
     </div>

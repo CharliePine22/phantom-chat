@@ -6,9 +6,12 @@ import { useState } from "react";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
 import { FullMessageType } from "@/app/types";
+import { Arsenal } from 'next/font/google';
 
 import MessageBoxAvatar from "@/app/components/MessageBoxAvatar";
 import ImageModal from "./ImageModal";
+
+const aresenal = Arsenal({subsets:['latin'], weight:'700'})
 
 interface MessageBoxProps {
   data: FullMessageType;
@@ -31,11 +34,11 @@ const MessageBox: React.FC<MessageBoxProps> = ({
 
   const container = clsx('flex gap-3 p-2', isOwn && 'justify-end');
   const avatar = clsx(isOwn && 'order-2');
-  const body = clsx('flex flex-col ', isOwn && 'items-end');
+  const body = clsx('flex flex-col ', isOwn ? 'items-end' : 'ml-[14px]');
   const message = clsx(
     'text-sm w-fit overflow-hidden',
     isOwn ? 'text-black' : 'text-white', 
-    data.image ? 'rounded-md p-0' : 'rounded-full py-1 px-3'
+    data.image ? 'rounded-md p-0' : 'rounded-full pb-1 px-3'
   );
 
   return ( 
@@ -71,7 +74,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({
               "
             />
           ) : (
-            <div>{data.body}</div>
+            <div className={aresenal.className}>{data.body}</div>
           )}
         </div>
         {isLast && isOwn && seenList.length > 0 && (

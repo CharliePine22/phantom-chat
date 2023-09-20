@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
     />
     <div 
       className="
-        bg-white 
+        bg-black
         w-full 
         flex 
         border-b-[1px] 
@@ -76,7 +76,7 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
           <UserAvatar user={otherUser} />
         )}
         <div className="flex flex-col">
-          <div>{conversation.name || otherUser.name}</div>
+          <div className='text-white'>{conversation.name || otherUser.name}</div>
           <div className="text-sm font-light text-neutral-500">
             {statusText}
           </div>

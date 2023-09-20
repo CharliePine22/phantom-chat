@@ -97,7 +97,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
         border-gray-200 
       `, isOpen ? 'hidden' : 'block w-full left-0')}>
         <div className="px-5">
-          <div className="flex justify-between mb-[2.8rem] pt-4">
+          <div className="flex justify-between mb-[3.5rem] pt-4">
             <div className="text-2xl z-10 font-bold text-neutral-800 persona-IM -rotate-[26deg] text-[4rem] translate-y-[10px] cursor-default">
               <span className='text-[#FF0401]' style={{
                 filter: 'drop-shadow(2px -5px 0px black) drop-shadow(-5px 0px 0px black) drop-shadow(4px 5px 0px black) drop-shadow(-3px -1px 0px black)'
