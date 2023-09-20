@@ -45,7 +45,7 @@ const MobileFooter: React.FC<MobileSidebarProps> = ({currentUser}) => {
       ))}
         <nav className="mt-4 flex flex-col justify-between items-center">
           <div 
-            onClick={() => setIsOpen(true)} 
+            // onClick={() => setIsOpen(true)} 
             className="cursor-pointer hover:opacity-75 transition"
           >
             <UserAvatar user={currentUser} />
