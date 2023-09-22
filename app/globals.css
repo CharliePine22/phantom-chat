@@ -188,6 +188,21 @@ body,
   background: #fe0000;
 }
 
+.message-body::-webkit-scrollbar {
+  position:fixed;
+  left: 0px;
+  width:10px;
+  background-color: white;
+}
+
+.message-body::-webkit-scrollbar-thumb {
+  background-color: #000000; /* Set the color of the thumb */
+}
+.message-body:::-webkit-scrollbar-track {
+  background: red;
+  border-radius: 5px;
+}
+
 .message-left,
 .message-right {
   width: fit-content;
