@@ -54,7 +54,7 @@ const Input: React.FC<InputProps> = ({
             rounded-md 
             border-0 
             py-1.5 
-            text-white
+            text-black
             shadow-sm 
             ring-1 
             ring-inset 
