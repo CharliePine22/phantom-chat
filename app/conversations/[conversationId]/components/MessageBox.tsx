@@ -2,7 +2,7 @@
 
 import clsx from "clsx";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { format } from "date-fns";
 import { useSession } from "next-auth/react";
 import { FullMessageType } from "@/app/types";
@@ -16,15 +16,19 @@ const aresenal = Arsenal({subsets:['latin'], weight:'700'})
 interface MessageBoxProps {
   data: FullMessageType;
   isLast?: boolean;
+  setCoords: (coords) => void
 }
 
 const MessageBox: React.FC<MessageBoxProps> = ({ 
   data, 
-  isLast
+  isLast,
+  setCoords
 }) => {
   const session = useSession();
   const [imageModalOpen, setImageModalOpen] = useState(false);
   const [skewAngle, setSkewAngle] = useState(0);
+  // Ref for finding coordinates of div for connecting line
+  const coordsRef = useRef();
 
 
   const isOwn = session.data?.user?.email === data?.sender?.email
@@ -48,12 +52,15 @@ const MessageBox: React.FC<MessageBoxProps> = ({
     // Generate random number to determine skew to make them slightly different
     const randomNumber: number = Math.floor(Math.random() * (15 - 6 + 1) + 6);
     setSkewAngle(randomNumber * -1);
+    let coords = coordsRef?.current?.getBoundingClientRect();
+    console.log(coords)
+    setCoords(coords);
   }, [])
 
   
 
   return ( 
-    <div className={container + ` persona-text-box ${isOwn ? 'message-right' : 'message-left'}`} style={{'--skew-angle': skewAngle + 'deg'} as React.CSSProperties } >
+    <div ref={coordsRef} className={container + ` persona-text-box ${isOwn ? 'message-right' : 'message-left'}`} style={{'--skew-angle': skewAngle + 'deg'} as React.CSSProperties } >
     {!isOwn && <div className={avatar}>
         <MessageBoxAvatar user={data.sender} />
       </div>}

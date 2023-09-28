@@ -16,12 +16,18 @@ interface BodyProps {
 const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
   const bottomRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState(initialMessages);
+  const [allCoords, setAllCoords] = useState([]);
   
   const { conversationId } = useConversation();
 
   useEffect(() => {
     axios.post(`/api/conversations/${conversationId}/seen`);
   }, [conversationId]);
+
+  useEffect(() => {
+    console.log(messages.length, allCoords.length)
+    console.log('DONE')
+  }, [messages, allCoords]);
 
   useEffect(() => {
     pusherClient.subscribe(conversationId)
@@ -62,18 +68,7 @@ const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
     }
   }, [conversationId]);
 
-  function getOffset( el ) {
-    var rect = el.getBoundingClientRect();
-    return {
-        left: rect.left + window.pageXOffset,
-        top: rect.top + window.pageYOffset,
-        width: rect.width || el.offsetWidth,
-        height: rect.height || el.offsetHeight
-    };
-}
-
-
-  function connect(div1, div2, color, thickness) {
+  function connect(div1:HTMLElement, div2:HTMLElement, thickness:number) {
     var off1 = getOffset(div1);
     var off2 = getOffset(div2);
     // bottom right
@@ -90,9 +85,7 @@ const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
     // angle
     var angle = Math.atan2((y1-y2),(x1-x2))*(180/Math.PI);
     // make hr
-    var htmlLine = "<div style='padding:0px; margin:0px; height:" + thickness + "px; background-color:" + color + "; line-height:1px; position:absolute; left:" + cx + "px; top:" + cy + "px; width:" + length + "px; -moz-transform:rotate(" + angle + "deg); -webkit-transform:rotate(" + angle + "deg); -o-transform:rotate(" + angle + "deg); -ms-transform:rotate(" + angle + "deg); transform:rotate(" + angle + "deg);' />";
-    //
-    alert(htmlLine);
+    var htmlLine = "<div style='padding:0px; margin:0px; height:" + thickness + "px; background-color: black; line-height:1px; position:absolute; left:" + cx + "px; top:" + cy + "px; width:" + length + "px; -moz-transform:rotate(" + angle + "deg); -webkit-transform:rotate(" + angle + "deg); -o-transform:rotate(" + angle + "deg); -ms-transform:rotate(" + angle + "deg); transform:rotate(" + angle + "deg);' />";
     document.body.innerHTML += htmlLine; 
 }
 
@@ -103,6 +96,7 @@ const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
           isLast={i === messages.length - 1} 
           key={message.id} 
           data={message}
+          setCoords={coords => setAllCoords(prevCoords => [...prevCoords, coords])}
         />
       ))}
       <div className="pt-6" ref={bottomRef} />
