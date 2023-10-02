@@ -87,7 +87,7 @@ body,
 
 /* Message box wrapper of the chat messages in the chat section */
 .persona-text-box {
-  margin: 0 auto 40px;
+  margin: 0 auto 50px;
   max-width: 100%;
   position: relative;
   z-index: 0;
@@ -187,10 +187,30 @@ body,
   background: #fe0000;
 }
 
+/* Styling for the avatar that appears when you're chatting with another user */
+
+.message-avatar-wrapper {
+  position: absolute;
+  width: fit-content;
+  transform: skewX(8deg);
+  background: yellow;
+  border: 4px solid white;
+  box-shadow: -5px -5px 0px black, -5px 3px 0 black, 3px 3px 0 black,
+    3px -5px 0 black;
+  left: -68px;
+  bottom: -7px;
+}
+
+.message-avatar-wrapper img {
+  transform: translate(12%, 3%) skewX(-10deg);
+  height: 100% !important;
+  width: 100% !important;
+}
+
 .message-body::-webkit-scrollbar {
   position: fixed;
   left: 0px;
-  width: 10px;
+  width: 6px;
   background-color: white;
 }
 
@@ -199,7 +219,6 @@ body,
 }
 .message-body::-webkit-scrollbar-track {
   background: red;
-  border-radius: 5px;
 }
 
 .message-left,
@@ -209,8 +228,15 @@ body,
 }
 
 .message-left {
-  margin-left: 70px;
-  min-width: 150px;
+  margin-left: 85px;
+  text-shadow: 0 0 white;
+  /* min-width: 95px; */
+  /* padding: 14px 10px 14px 0; */
+}
+
+.message-left::before {
+  transform: skew(var(--skew-angle));
+  /* box-shadow: -17px 11px 4px black; */
 }
 
 .message-left > div > div span {
@@ -219,12 +245,9 @@ body,
 }
 
 .message-right {
-  margin-right: 70px;
+  margin-right: 25px;
   min-width: 50px;
-}
-
-.message-left::before {
-  transform: skew(var(--skew-angle));
+  text-shadow: 0 0 black;
 }
 
 .message-right::before {
@@ -232,6 +255,7 @@ body,
   outline: 3px solid black;
   content: '';
   transform: skew(15deg);
+  /* box-shadow: -17px 11px 4px black; */
   /* width: 0px;
   height: 0px;
   position: absolute;
@@ -245,7 +269,7 @@ body,
 }
 
 .message-right::after {
-  content: '';
+  /* content: ''; */
   position: absolute;
   right: 0px;
   top: 30px;
@@ -271,21 +295,29 @@ body,
 
 @media screen and (max-width: 600px) {
   .message-right {
-    margin-right: 25px;
+    margin-right: 20px;
   }
 
   .message-left {
-    margin-left: 25px;
+    margin-left: 20px;
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 460px) {
   .message-right {
     margin-right: 15px;
     max-width: 80%;
   }
   .message-left {
-    margin-left: 15px;
+    margin-left: 45px;
     max-width: 80%;
+    min-width: 50px;
+    justify-content: center;
+  }
+
+  .message-avatar-wrapper {
+    position: absolute;
+    left: -35px;
+    top: -5px;
   }
 }

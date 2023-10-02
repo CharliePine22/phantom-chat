@@ -16,7 +16,16 @@ const aresenal = Arsenal({subsets:['latin'], weight:'700'})
 interface MessageBoxProps {
   data: FullMessageType;
   isLast?: boolean;
-  setCoords: (coords) => void
+  setCoords: (coords : {
+    bottom: number,
+    height: number,
+    left: number,
+    right: number,
+    top: number,
+    width: number,
+    x: number, 
+    y: number,
+  } | undefined) => void
 }
 
 const MessageBox: React.FC<MessageBoxProps> = ({ 
@@ -28,7 +37,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({
   const [imageModalOpen, setImageModalOpen] = useState(false);
   const [skewAngle, setSkewAngle] = useState(0);
   // Ref for finding coordinates of div for connecting line
-  const coordsRef = useRef();
+  const coordsRef = useRef<HTMLInputElement>(null);
 
 
   const isOwn = session.data?.user?.email === data?.sender?.email
@@ -39,9 +48,9 @@ const MessageBox: React.FC<MessageBoxProps> = ({
 
   const container = clsx('flex p-2', isOwn && 'justify-end');
   const avatar = clsx(isOwn && 'order-2');
-  const body = clsx('flex flex-col ', isOwn ? 'items-end' : 'ml-[14px] justify-center');
+  const body = clsx('flex flex-col ', isOwn ? 'items-end' : 'justify-center');
   const message = clsx(
-    'text-sm w-fit overflow-hidden',
+    'text-lg w-fit overflow-hidden',
     isOwn ? 'text-black' : 'text-white', 
     data.image ? 'rounded-md p-0' : 'px-1.5 pb-1'
   );
@@ -53,7 +62,6 @@ const MessageBox: React.FC<MessageBoxProps> = ({
     const randomNumber: number = Math.floor(Math.random() * (15 - 6 + 1) + 6);
     setSkewAngle(randomNumber * -1);
     let coords = coordsRef?.current?.getBoundingClientRect();
-    console.log(coords)
     setCoords(coords);
   }, [])
 
@@ -92,7 +100,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({
               "
             />
           ) : (
-            <div className={aresenal.className}>{data.body}</div>
+            <div className={aresenal.className + ' py-[5px] px-[10px]'}>{data.body}</div>
           )}
         </div>
         {isLast && isOwn && seenList.length > 0 && (

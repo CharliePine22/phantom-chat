@@ -14,16 +14,13 @@ const MessageBoxAvatar: React.FC<AvatarProps> = ({ user }) => {
   const isActive = members.indexOf(user?.email!) !== -1;
 
   return (
-    <div className="message-avatar-wrapper relative w-full">
+    <div className="message-avatar-wrapper w-full">
       <div className="
         relative 
-        inline-block 
-        overflow-hidden
-        h-[50px]
-        w-[50px]
+        h-[65px]
+        w-[65px]
         md:h-11 
         md:w-11
-        left-[9px]
         "
       >
         <Image
