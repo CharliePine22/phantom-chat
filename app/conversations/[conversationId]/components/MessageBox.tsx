@@ -48,7 +48,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({
 
   const container = clsx('flex p-2', isOwn && 'justify-end');
   const avatar = clsx(isOwn && 'order-2');
-  const body = clsx('flex flex-col ', isOwn ? 'items-end' : 'justify-center');
+  const body = clsx('flex flex-col ', isOwn ? 'items-end' : 'justify-center relative z-10');
   const message = clsx(
     'text-lg w-fit overflow-hidden',
     isOwn ? 'text-black' : 'text-white', 
@@ -109,7 +109,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({
             text-xs 
             font-light 
             text-gray-500
-            mr-3
+            pl-2
             "
           >
             {`Seen by ${seenList}`}

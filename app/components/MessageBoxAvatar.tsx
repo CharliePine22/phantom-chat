@@ -19,8 +19,8 @@ const MessageBoxAvatar: React.FC<AvatarProps> = ({ user }) => {
         relative 
         h-[65px]
         w-[65px]
-        md:h-11 
-        md:w-11
+        md:h-14
+        md:w-[4.5rem]
         "
       >
         <Image
