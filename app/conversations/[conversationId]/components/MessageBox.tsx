@@ -48,18 +48,18 @@ const MessageBox: React.FC<MessageBoxProps> = ({
 
   const container = clsx('flex p-2', isOwn && 'justify-end');
   const avatar = clsx(isOwn && 'order-2');
-  const body = clsx('flex flex-col ', isOwn ? 'items-end' : 'justify-center relative z-10');
+  const body = clsx('flex flex-col ', isOwn ? 'items-end' : 'justify-center relative z-10 w-full');
   const message = clsx(
     'text-lg w-fit overflow-hidden',
     isOwn ? 'text-black' : 'text-white', 
-    data.image ? 'rounded-md p-0' : 'px-1.5 pb-1'
+    data.image ? 'rounded-md p-0' : 'pl-1.5 pb-1'
   );
 
 
   // Only want to change message box shapes when the conversation starts
   useEffect(() => {
     // Generate random number to determine skew to make them slightly different
-    const randomNumber: number = Math.floor(Math.random() * (15 - 6 + 1) + 6);
+    const randomNumber: number = Math.floor(Math.random() * (12 - 3 + 1) + 3); // Gemerate mumber between 3 and 12
     setSkewAngle(randomNumber * -1);
     let coords = coordsRef?.current?.getBoundingClientRect();
     setCoords(coords);
@@ -100,7 +100,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({
               "
             />
           ) : (
-            <div className={aresenal.className + ' py-[5px] px-[10px]'}>{data.body}</div>
+            <div className={aresenal.className}>{data.body}</div>
           )}
         </div>
         {isLast && isOwn && seenList.length > 0 && (

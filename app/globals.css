@@ -51,7 +51,7 @@ body,
   letter-spacing: -0.025em !important;
 }
 
-/* Date of last message in the conversations list page */
+/*! Date of last message in the conversations list page */
 .persona-box-date {
   color: white;
   position: absolute;
@@ -68,7 +68,7 @@ body,
 .persona-box-date span:last-of-type {
   /* font-family: Expose !important; */
 }
-/* Date of last messsage end */
+/*! Date of last messsage end */
 
 .persona-glyphs {
   letter-spacing: 0.175em !important;
@@ -85,33 +85,7 @@ body,
   letter-spacing: 0.075em !important;
 }
 
-/* Message box wrapper of the chat messages in the chat section */
-.persona-text-box {
-  margin: 0 auto 50px;
-  max-width: 100%;
-  position: relative;
-  z-index: 0;
-}
-
-.persona-text-box::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  transform: skew(-15deg);
-  background: black;
-  border: 3px solid white;
-}
-
-.persona-text-box:first-of-type {
-  margin-top: 30px;
-}
-/* Message box wrapper of the chat messages end */
-
-/* Wrapper and styling of each ongoing conversation in users list */
+/*! Wrapper and styling of each ongoing conversation in users list */
 .conversation-box {
   margin: 0 auto 30px;
   width: 335px;
@@ -144,9 +118,9 @@ body,
   outline: 3px solid black;
   color: black;
 }
-/* Conversation box wrapper end */
+/*! Conversation box wrapper end */
 
-/* Image styling for the avatars/avatar containers on the friends list page */
+/*! Image styling for the avatars/avatar containers on the friends list page */
 .persona-avatar-box {
   height: 110px;
   width: 110px;
@@ -177,7 +151,34 @@ body,
   border-bottom: 3px solid white;
   border-left: 4px solid white;
 }
-/* Image styling for the avatars/avatar containers end */
+/*! Image styling for the avatars/avatar containers end */
+
+/*! Message box wrapper of the chat messages in the chat section */
+.persona-text-box {
+  margin: 0 auto 80px;
+  max-width: 100%;
+  position: relative;
+  z-index: 0;
+}
+
+.persona-text-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  transform: skew(-15deg);
+  background: black;
+  /* border-right: 3px outset;
+  border-color: white; */
+}
+
+.persona-text-box:first-of-type {
+  margin-top: 40px;
+}
+/*! Message box wrapper of the chat messages end */
 
 .inner-persona-box {
   margin-left: 108px !important;
@@ -187,7 +188,7 @@ body,
   background: #fe0000;
 }
 
-/* Styling for the avatar that appears when you're chatting with another user */
+/*! Styling for the avatar that appears when you're chatting with another user */
 
 .message-avatar-wrapper {
   position: absolute;
@@ -196,17 +197,20 @@ body,
   background: yellow;
   border: 4px solid white;
   box-shadow: -5px -5px 0px black, -5px 3px 0 black, 3px 3px 0 black,
-    3px -5px 0 black;
-  left: -80px;
+    3px -5px 0 black, -10px 7px 3px black;
+  left: -75px;
   bottom: -7px;
 }
 
 .message-avatar-wrapper img {
   transform: translate(7%, -24%) skewX(-10deg);
-  height: 75px !important;
+  height: 84px !important;
   width: 100% !important;
 }
 
+/*! Styling for the avatar that appears when you're chatting with another user END */
+
+/*! Message box styling */
 .message-body::-webkit-scrollbar {
   position: fixed;
   left: 0px;
@@ -218,7 +222,7 @@ body,
   background-color: #000000; /* Set the color of the thumb */
 }
 .message-body::-webkit-scrollbar-track {
-  background: red;
+  background: silver;
 }
 
 .message-left,
@@ -230,14 +234,25 @@ body,
 .message-left {
   margin-left: 95px;
   text-shadow: 0 0 white;
-  /* min-width: 95px; */
-  /* padding: 14px 10px 14px 0; */
 }
 
 .message-left::before {
-  transform: skew(var(--skew-angle));
+  transform: skew(-4deg);
   z-index: 1;
-  /* box-shadow: -17px 11px 4px black; */
+  box-shadow: 6px -4px 0 white, 6px 4px 0 white, -3px -4px 0 white,
+    -3px 4px 0 white;
+}
+
+.message-left::after {
+  content: '';
+  position: absolute;
+  left: -33px;
+  border: 12px solid rgba(0, 0, 0, 0);
+  border-bottom: 25px solid white;
+  transform: rotateZ(-82deg);
+  width: 0;
+  height: 0;
+  z-index: 3;
 }
 
 .message-left > div > div span {
@@ -255,18 +270,7 @@ body,
   background: white;
   outline: 3px solid black;
   content: '';
-  transform: skew(15deg);
-  /* box-shadow: -17px 11px 4px black; */
-  /* width: 0px;
-  height: 0px;
-  position: absolute;
-  border-left: 10px solid transparent;
-  border-right: 10px solid white;
-  border-top: 10px solid white;
-  border-bottom: 10px solid transparent;
-  left: -19px;
-  top: 6px;
-  outline: none; */
+  transform: skew(5deg);
 }
 
 .message-right::after {
@@ -283,6 +287,8 @@ body,
   font-family: P5Menu !important;
 }
 
+/*! Message box styling END */
+
 .home form label {
   font-family: Expose !important;
   font-size: 1.3rem !important;
@@ -294,13 +300,29 @@ body,
   box-shadow: -1px 2px 8px black;
 }
 
-@media screen and (max-width: 600px) {
-  .message-right {
-    margin-right: 20px;
+@media screen and (min-width: 1024px) {
+  .message-left {
+    margin-left: 155px;
   }
 
-  .message-left {
-    margin-left: 20px;
+  .message-avatar-wrapper {
+    left: -125px;
+    bottom: -18px;
+  }
+
+  .message-avatar-wrapper img {
+    transform: translate(10%, -30%) skewX(-10deg);
+    height: 115px !important;
+  }
+
+  .persona-text-box:first-of-type {
+    margin-top: 56px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .message-avatar-wrapper img {
+    height: 86px !important;
   }
 }
 
@@ -310,15 +332,17 @@ body,
     max-width: 80%;
   }
   .message-left {
-    margin-left: 45px;
-    max-width: 80%;
+    margin-left: 110px;
+    max-width: 70%;
     min-width: 50px;
     justify-content: center;
   }
 
+  .message-left::after {
+    display: none;
+  }
+
   .message-avatar-wrapper {
-    position: absolute;
-    left: -35px;
-    top: -5px;
+    left: -90px;
   }
 }
