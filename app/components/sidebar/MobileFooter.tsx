@@ -1,17 +1,16 @@
 'use client';
 
-import useConversation from "@/app/hooks/useConversation";
-import useRoutes from "@/app/hooks/useRoutes";
-import MobileItem from "./MobileItem";
-import UserAvatar from "../UserAvatar";
-import { User } from "@prisma/client";
-
+import useConversation from '@/app/hooks/useConversation';
+import useRoutes from '@/app/hooks/useRoutes';
+import MobileItem from './MobileItem';
+import UserAvatar from '../UserAvatar';
+import { User } from '@prisma/client';
 
 interface MobileSidebarProps {
-  currentUser: User
+  currentUser: User;
 }
 
-const MobileFooter: React.FC<MobileSidebarProps> = ({currentUser}) => {
+const MobileFooter: React.FC<MobileSidebarProps> = ({ currentUser }) => {
   const routes = useRoutes();
   const { isOpen } = useConversation();
 
@@ -19,9 +18,9 @@ const MobileFooter: React.FC<MobileSidebarProps> = ({currentUser}) => {
     return null;
   }
 
-  return ( 
-    <div 
-      className="
+  return (
+    <div
+      className='
         fixed 
         justify-between 
         w-full 
@@ -32,27 +31,27 @@ const MobileFooter: React.FC<MobileSidebarProps> = ({currentUser}) => {
         bg-[#A40001]
         border-t-[1px] 
         lg:hidden
-      "
+      '
     >
       {routes.map((route) => (
-        <MobileItem 
-          key={route.href} 
-          href={route.href} 
-          active={route.active} 
+        <MobileItem
+          key={route.href}
+          href={route.href}
+          active={route.active}
           icon={route.icon}
           onClick={route.onClick}
         />
       ))}
-        <nav className="mt-4 flex flex-col justify-between items-center">
-          <div 
-            // onClick={() => setIsOpen(true)} 
-            className="cursor-pointer hover:opacity-75 transition"
-          >
-            <UserAvatar user={currentUser} />
-          </div>
-        </nav>
+      <nav className='mt-4 flex flex-col justify-between items-center'>
+        <div
+          // onClick={() => setIsOpen(true)}
+          className='cursor-pointer hover:opacity-75 transition'
+        >
+          <UserAvatar user={currentUser} />
+        </div>
+      </nav>
     </div>
-   );
-}
- 
+  );
+};
+
 export default MobileFooter;

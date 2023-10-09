@@ -35,7 +35,7 @@ body,
 
 .conversation-box-wrapper .avatar-wrapper div {
   transform: perspective(29px) skewX(-15deg) rotateY(0.2deg);
-  left: -25px;
+  left: -24px;
   height: 74px;
   width: 95px;
 }
@@ -51,7 +51,7 @@ body,
   letter-spacing: -0.025em !important;
 }
 
-/*! Date of last message in the conversations list page */
+/** Date of last message in the conversations list page */
 .persona-box-date {
   color: white;
   position: absolute;
@@ -76,6 +76,7 @@ body,
 }
 
 .persona-IM {
+  position: relative;
   font-family: Expose !important;
   letter-spacing: 0.075em !important;
 }
@@ -85,12 +86,11 @@ body,
   letter-spacing: 0.075em !important;
 }
 
-/*! Wrapper and styling of each ongoing conversation in users list */
+/** Wrapper and styling of each ongoing conversation in users list */
 .conversation-box {
-  margin: 0 auto 30px;
+  margin: 0 auto 40px;
   width: 335px;
   max-width: 100%;
-  position: relative;
   z-index: 0;
   color: white;
 }
@@ -120,7 +120,7 @@ body,
 }
 /*! Conversation box wrapper end */
 
-/*! Image styling for the avatars/avatar containers on the friends list page */
+/** Image styling for the avatars/avatar containers on the friends list page */
 .persona-avatar-box {
   height: 110px;
   width: 110px;
@@ -153,7 +153,7 @@ body,
 }
 /*! Image styling for the avatars/avatar containers end */
 
-/*! Message box wrapper of the chat messages in the chat section */
+/** Message box wrapper of the chat messages in the chat section */
 .persona-text-box {
   margin: 0 auto 80px;
   max-width: 100%;
@@ -170,13 +170,21 @@ body,
   left: 0;
   z-index: -1;
   transform: skew(-15deg);
-  background: black;
-  /* border-right: 3px outset;
-  border-color: white; */
+  /* background: black; */
+  /* background-image: url('/images/p5-speech-bubble.png'); */
+}
+
+.p5-chat-bubble {
+  position: absolute;
+  z-index: -1;
 }
 
 .persona-text-box:first-of-type {
   margin-top: 40px;
+}
+
+.last-message {
+  margin-bottom: 30px;
 }
 /*! Message box wrapper of the chat messages end */
 
@@ -188,7 +196,7 @@ body,
   background: #fe0000;
 }
 
-/*! Styling for the avatar that appears when you're chatting with another user */
+/** Styling for the avatar that appears when you're chatting with another user */
 
 .message-avatar-wrapper {
   position: absolute;
@@ -210,19 +218,22 @@ body,
 
 /*! Styling for the avatar that appears when you're chatting with another user END */
 
-/*! Message box styling */
-.message-body::-webkit-scrollbar {
+/** Message box styling */
+.message-body::-webkit-scrollbar,
+.conversation-list-wrapper::-webkit-scrollbar {
   position: fixed;
   left: 0px;
   width: 6px;
-  background-color: white;
+  background-color: black;
 }
 
-.message-body::-webkit-scrollbar-thumb {
-  background-color: #000000; /* Set the color of the thumb */
+.message-body::-webkit-scrollbar-thumb,
+.conversation-list-wrapper::-webkit-scrollbar-thumb {
+  background-color: #fff; /* Set the color of the thumb */
 }
-.message-body::-webkit-scrollbar-track {
-  background: silver;
+.message-body::-webkit-scrollbar-track,
+.conversation-list-wrapper::-webkit-scrollbar-track {
+  background: black;
 }
 
 .message-left,
@@ -246,18 +257,23 @@ body,
 .message-left::after {
   content: '';
   position: absolute;
-  left: -33px;
+  left: -28px;
   border: 12px solid rgba(0, 0, 0, 0);
-  border-bottom: 25px solid white;
+  border-bottom: 16px solid white;
   transform: rotateZ(-82deg);
   width: 0;
   height: 0;
   z-index: 3;
 }
 
-.message-left > div > div span {
+/* .message-left > div > div span {
   right: -15px;
   top: -2px;
+} */
+
+.message-left .date-container {
+  top: -33px;
+  right: -12px;
 }
 
 .message-right {
@@ -283,11 +299,126 @@ body,
   border-bottom: 15px solid transparent;
 }
 
+.message-right .date-container {
+  top: -18px;
+}
+
 .persona-menu-font {
   font-family: P5Menu !important;
 }
 
 /*! Message box styling END */
+
+/** Persona Menu Animation Styling */
+.jelly {
+  -webkit-animation-name: jelly;
+  animation-name: jelly;
+  -webkit-transform-origin: center;
+  transform-origin: center;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+.shape-wrapper {
+  filter: sepia(50%) saturate(3);
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+#submit-button:hover .shape-wrapper {
+  display: block;
+  transform: rotate(-6deg);
+}
+
+#submit-button:hover .persona-IM {
+  color: black;
+  z-index: 100;
+  animation: tiltBounce 0.15s ease;
+  animation-fill-mode: forwards;
+}
+
+#submit-button:hover .shape.cyan-fill {
+  transform: scale(1.2, 0.1);
+}
+
+.shape {
+  transition: all 0.1s linear;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 35px;
+  overflow: hidden;
+}
+
+.shape > svg {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.cyan-fill {
+  mix-blend-mode: screen;
+  animation-delay: 0.05s;
+  animation-duration: 0.4s;
+}
+
+.red-fill {
+  animation-duration: 0.45s;
+  animation-delay: 0.08s;
+  opacity: 0.8;
+}
+
+/* ! Persona Menu Animation Styling END */
+
+/** Animations for Send Button Polygons */
+@keyframes tiltBounce {
+  0% {
+    transform: scale(1) rotate(-7deg);
+  }
+  50% {
+    transform: scale(1.5) rotate(-7deg);
+  }
+  100% {
+    transform: scale(1.15) rotate(-7deg);
+  }
+}
+
+@keyframes tiltBounceAlt {
+  0% {
+    transform: scale(1) rotate(7deg);
+  }
+  50% {
+    transform: scale(1.5) rotate(7deg);
+  }
+  100% {
+    transform: scale(1.15) rotate(7deg);
+  }
+}
+
+@keyframes jelly {
+  0% {
+    width: 100%;
+    transform: scale(1.25, 1) skewX(20deg) translateY(3px) rotateX(40deg)
+      rotateY(10deg) rotateZ(-10deg);
+  }
+  50% {
+    width: 100%;
+    transform: scale(1.25, 1.1) skewX(-15deg) translateY(-2px) translateZ(-30px);
+  }
+  100% {
+    width: 100%;
+    transform: scale(1.25, 1) skewX(20deg) translateY(3px) rotateX(-40deg)
+      rotateY(-10deg) rotateZ(-15deg);
+  }
+}
+
+/*! Animations for Send Button Polygons END */
 
 .home form label {
   font-family: Expose !important;
@@ -300,6 +431,7 @@ body,
   box-shadow: -1px 2px 8px black;
 }
 
+/* LAPTOP STYLING */
 @media screen and (min-width: 1024px) {
   .message-left {
     margin-left: 155px;
@@ -320,19 +452,22 @@ body,
   }
 }
 
+/* TABLET STYLING */
 @media screen and (max-width: 768px) {
   .message-avatar-wrapper img {
     height: 86px !important;
   }
 }
 
+/* MOBILE DEVICES STYLING */
 @media screen and (max-width: 460px) {
   .message-right {
-    margin-right: 15px;
+    margin-right: 10px;
     max-width: 80%;
   }
+
   .message-left {
-    margin-left: 110px;
+    margin-left: 105px;
     max-width: 70%;
     min-width: 50px;
     justify-content: center;
@@ -344,5 +479,9 @@ body,
 
   .message-avatar-wrapper {
     left: -90px;
+  }
+
+  .persona-text-box:first-of-type {
+    margin-top: 45px;
   }
 }
