@@ -170,7 +170,7 @@ body,
   left: 0;
   z-index: -1;
   transform: skew(-15deg);
-  /* background: black; */
+  background: black;
   /* background-image: url('/images/p5-speech-bubble.png'); */
 }
 
