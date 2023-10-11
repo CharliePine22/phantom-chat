@@ -36,6 +36,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast, setCoords }) => {
   const session = useSession();
   const [imageModalOpen, setImageModalOpen] = useState(false);
   const [skewAngle, setSkewAngle] = useState(0);
+  const [boxPlacement, setBoxPlacement] = useState(0);
   // Ref for finding coordinates of div for connecting line
   const coordsRef = useRef<HTMLInputElement>(null);
 
@@ -59,9 +60,11 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast, setCoords }) => {
 
   // Only want to change message box shapes when the conversation starts
   useEffect(() => {
+    console.log(isOwn)
     // Generate random number to determine skew to make them slightly different
-    const randomNumber: number = Math.floor(Math.random() * (12 - 3 + 1) + 3); // Gemerate mumber between 3 and 12
+    const randomNumber: number = Math.floor(Math.random() * (25 - 5 + 1) + 5); // Gemerate mumber between 3 and 12
     setSkewAngle(randomNumber * -1);
+    setBoxPlacement(randomNumber);
 
     // Get coordinates of current message box position
     let coords = coordsRef?.current?.getBoundingClientRect();
@@ -77,7 +80,7 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast, setCoords }) => {
           isOwn ? 'message-right' : 'message-left'
         }`
       }
-      style={{ '--skew-angle': skewAngle + 'deg' } as React.CSSProperties}
+      style={{ '--skew-angle': skewAngle + 'deg', '--box-placement': boxPlacement + 'px' } as React.CSSProperties}
     >
       {!isOwn && (
         <div className={avatar}>

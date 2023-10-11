@@ -90,7 +90,7 @@ const Form = () => {
                 x='0px'
                 y='0px'
                 viewBox='0 0 108.1 47'
-                enable-background='new 0 0 108.1 47'
+                enableBackground='new 0 0 108.1 47'
               >
                 <polygon
                   fill='#FF0000'
@@ -103,7 +103,7 @@ const Form = () => {
                 x='0px'
                 y='0px'
                 viewBox='0 0 108.1 47'
-                enable-background='new 0 0 108.1 47'
+                enableBackground='new 0 0 108.1 47'
               >
                 <polygon
                   fill='#00FFFF'
