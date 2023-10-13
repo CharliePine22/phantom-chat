@@ -57,7 +57,7 @@ body,
   position: absolute;
   top: -15px;
   font-family: P5Menu !important;
-  z-index:10;
+  z-index: 10;
 }
 
 .persona-box-date span {
@@ -156,7 +156,7 @@ body,
 
 /** Message box wrapper of the chat messages in the chat section */
 .persona-text-box {
-  margin: 0 auto 80px;
+  margin: 0 auto 110px;
   max-width: 100%;
   position: relative;
   z-index: 0;
@@ -246,7 +246,7 @@ body,
 .message-left {
   margin-left: 105px;
   text-shadow: 0 0 white;
-  transform:translateX(var(--box-placement));
+  transform: translateX(var(--box-placement));
 }
 
 .message-left::before {
@@ -274,13 +274,10 @@ body,
   top: -5px;
 }
 
-
 .conversation-box-wrapper > div span {
   right: 263px;
   top: 60px;
 }
-
-
 
 .message-left .date-container {
   top: -33px;
