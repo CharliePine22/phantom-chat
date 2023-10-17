@@ -33,6 +33,12 @@ const MobileFooter: React.FC<MobileSidebarProps> = ({ currentUser }) => {
         lg:hidden
       '
     >
+      <div
+        // onClick={() => setIsOpen(true)}
+        className='cursor-pointer hover:opacity-75 transition px-4'
+      >
+        <UserAvatar user={currentUser} />
+      </div>
       {routes.map((route) => (
         <MobileItem
           key={route.href}
@@ -40,16 +46,9 @@ const MobileFooter: React.FC<MobileSidebarProps> = ({ currentUser }) => {
           active={route.active}
           icon={route.icon}
           onClick={route.onClick}
+          title={route.title}
         />
       ))}
-      <nav className='mt-4 flex flex-col justify-between items-center'>
-        <div
-          // onClick={() => setIsOpen(true)}
-          className='cursor-pointer hover:opacity-75 transition'
-        >
-          <UserAvatar user={currentUser} />
-        </div>
-      </nav>
     </div>
   );
 };

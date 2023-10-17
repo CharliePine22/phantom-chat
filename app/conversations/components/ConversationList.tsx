@@ -96,7 +96,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
         lg:left-20 
         lg:w-[25rem] 
         lg:block
-        h-[92%]
+        h-full
         lg:h-full
         overflow-y-auto 
         border-r 
@@ -105,8 +105,8 @@ const ConversationList: React.FC<ConversationListProps> = ({
           isOpen ? 'hidden' : 'block w-full left-0'
         )}
       >
-        <div className='px-5'>
-          <div className='flex justify-between mb-[3.5rem] pt-4'>
+        <div className='px-5 pb-[4.5rem] lg:pb-0'>
+          <div className='flex justify-between mb-[3.5rem] sm:mb-[1.5rem] pt-4'>
             <div className='text-2xl z-10 font-bold text-neutral-800 persona-IM -rotate-[26deg] text-[4rem] translate-y-[10px] cursor-default'>
               <span
                 className='text-[#FF0401]'

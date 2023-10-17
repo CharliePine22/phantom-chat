@@ -117,9 +117,6 @@ const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
     setCompletedElements(allElements);
   };
 
-  const connectLines = (item: string) => {
-    console.log(item);
-  };
   return (
     <div className='flex-1 overflow-y-auto overflow-x-hidden relative message-body z-10'>
       {messages.map((message, i) => (
@@ -133,13 +130,13 @@ const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
         />
       ))}
 
-      {completedElements.map((item, i) => (
+      {/* {completedElements.map((item, i) => (
         <div
           className='absolute -top-[90px] -z-[1]'
           key={i}
           dangerouslySetInnerHTML={{ __html: item }}
         />
-      ))}
+      ))} */}
 
       <div className='pt-1' ref={bottomRef} />
     </div>
