@@ -37,7 +37,7 @@ const MobileItem: React.FC<MobileItemProps> = ({
         text-sm 
         leading-6 
         font-semibold 
-        w-1/4
+        w-full
         justify-center 
         p-1
         text-white
@@ -51,7 +51,7 @@ const MobileItem: React.FC<MobileItemProps> = ({
       <span className='icon-label'>{title}</span>
       <img
         src={icon.src}
-        className={`h-[50px] w-[50px] 
+        className={`h-[40px] w-[40px] 
           ${title == 'Chat' && '-translate-y-[0.3rem]'}
         `}
       />

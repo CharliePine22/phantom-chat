@@ -1,34 +1,17 @@
 'use client';
 
 import { User } from '@prisma/client';
-import { useEffect, useState } from 'react';
 
 import useActiveList from '../hooks/useActiveList';
 import Image from 'next/image';
 
-interface AvatarProps {
+interface UserListAvatarProps {
   user?: User;
 }
 
-const Avatar: React.FC<AvatarProps> = ({ user }) => {
+const UserListAvatar: React.FC<UserListAvatarProps> = ({ user }) => {
   const { members } = useActiveList();
   const isActive = members.indexOf(user?.email!) !== -1;
-  const [randomColor, setRandomColor] = useState<string>();
-
-  const colors = [
-    '#4BEF05',
-    '#2740B4',
-    '#26CFFA',
-    '#A858CB',
-    '#616161',
-    '#FF69B4',
-    '#FFFF00',
-  ];
-
-  useEffect(() => {
-    let selectedColor = colors[Math.floor(Math.random() * colors.length)];
-    setRandomColor(selectedColor);
-  }, [user]);
 
   return (
     <div className='avatar-wrapper absolute h-full w-full'>
@@ -37,9 +20,11 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
         relative 
         inline-block 
         overflow-hidden
-        friend-avatar-box
+        h-[90px]
+        w-[95px]
+        users-avatar-box
+        left-[9px]
         '
-        style={{ backgroundColor: randomColor }}
       >
         <Image
           fill
@@ -68,4 +53,4 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
   );
 };
 
-export default Avatar;
+export default UserListAvatar;

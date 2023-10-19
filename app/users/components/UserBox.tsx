@@ -1,39 +1,36 @@
-import axios from "axios";
-import { useCallback, useState } from "react";
-import { useRouter } from "next/navigation";
-import {  User } from "@prisma/client";
+import axios from 'axios';
+import { useCallback, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { User } from '@prisma/client';
 
-import Avatar from "@/app/components/Avatar";
-import LoadingModal from "@/app/components/modals/LoadingModal";
+import UserListAvatar from '@/app/components/Avatar';
+import LoadingModal from '@/app/components/modals/LoadingModal';
 
 interface UserBoxProps {
-  data: User
+  data: User;
 }
 
-const UserBox: React.FC<UserBoxProps> = ({ 
-  data
-}) => {
+const UserBox: React.FC<UserBoxProps> = ({ data }) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = useCallback(() => {
     setIsLoading(true);
 
-    axios.post('/api/conversations', { userId: data.id })
-    .then((data) => {
-      router.push(`/conversations/${data.data.id}`);
-    })
-    .finally(() => setIsLoading(false));
+    axios
+      .post('/api/conversations', { userId: data.id })
+      .then((data) => {
+        router.push(`/conversations/${data.data.id}`);
+      })
+      .finally(() => setIsLoading(false));
   }, [data, router]);
 
   return (
     <>
-      {isLoading && (
-        <LoadingModal />
-      )}
+      {isLoading && <LoadingModal />}
       <div
         onClick={handleClick}
-        className="
+        className='
           bg-transparent
           relative 
           flex 
@@ -47,14 +44,14 @@ const UserBox: React.FC<UserBoxProps> = ({
           cursor-pointer
           my-6
           persona-avatar-box
-        "
+        '
       >
-        <Avatar user={data} />
-        <div className="min-w-0 flex-1" style={{marginLeft: 0}}>
-          <div className="focus:outline-none">
-            <span className="absolute inset-0" aria-hidden="true" />
-            <div className="absolute bottom-[-32px] left-[8px] flex justify-center items-center mb-1 w-full">
-              <p className="text-2xl font-medium text-white whitespace-nowrap friend-name">
+        <UserListAvatar user={data} />
+        <div className='min-w-0 flex-1' style={{ marginLeft: 0 }}>
+          <div className='focus:outline-none'>
+            <span className='absolute inset-0' aria-hidden='true' />
+            <div className='absolute bottom-[-32px] left-[8px] flex justify-center items-center mb-1 w-full'>
+              <p className='text-2xl font-medium text-white whitespace-nowrap friend-name'>
                 {data.name}
               </p>
             </div>
@@ -63,6 +60,6 @@ const UserBox: React.FC<UserBoxProps> = ({
       </div>
     </>
   );
-}
- 
+};
+
 export default UserBox;

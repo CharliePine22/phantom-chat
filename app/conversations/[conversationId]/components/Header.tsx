@@ -1,22 +1,24 @@
 'use client';
 
-import { HiChevronLeft } from 'react-icons/hi'
+import { HiChevronLeft } from 'react-icons/hi';
 import { HiEllipsisHorizontal } from 'react-icons/hi2';
-import { useMemo, useState } from "react";
-import Link from "next/link";
-import { Conversation, User } from "@prisma/client";
+import { IoTrash } from 'react-icons/io5';
+import { useMemo, useState } from 'react';
+import Link from 'next/link';
+import { Conversation, User } from '@prisma/client';
 
-import useOtherUser from "@/app/hooks/useOtherUser";
-import useActiveList from "@/app/hooks/useActiveList";
+import useOtherUser from '@/app/hooks/useOtherUser';
+import useActiveList from '@/app/hooks/useActiveList';
 
-import UserAvatar from "@/app/components/UserAvatar";
-import AvatarGroup from "@/app/components/AvatarGroup";
-import ProfileDrawer from "./ProfileDrawer";
+import UserAvatar from '@/app/components/UserAvatar';
+import AvatarGroup from '@/app/components/AvatarGroup';
+import ProfileDrawer from './ProfileDrawer';
+import ConfirmModal from './ConfirmModal';
 
 interface HeaderProps {
   conversation: Conversation & {
-    users: User[]
-  }
+    users: User[];
+  };
 }
 
 const Header: React.FC<HeaderProps> = ({ conversation }) => {
@@ -30,18 +32,19 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
       return `${conversation.users.length} members`;
     }
 
-    return isActive ? 'Active' : 'Offline'
+    return isActive ? 'Active' : 'Offline';
   }, [conversation, isActive]);
 
   return (
-  <>
-    <ProfileDrawer 
-      data={conversation} 
-      isOpen={drawerOpen} 
-      onClose={() => setDrawerOpen(false)}
-    />
-    <div 
-      className="
+    <>
+      {/* <ProfileDrawer
+        data={conversation}
+        isOpen={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+      /> */}
+      <ConfirmModal isOpen={drawerOpen} onClose={() => setDrawerOpen(false)} />
+      <div
+        className='
         bg-black
         w-full 
         flex 
@@ -54,47 +57,50 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
         items-center 
         shadow-sm
         z-10
-      "
-    >
-      <div className="flex gap-3 items-center">
-        <Link
-          href="/conversations" 
-          className="
+      '
+      >
+        <div className='flex gap-3 items-center'>
+          <Link
+            href='/conversations'
+            className='
             lg:hidden 
             block 
             text-sky-500 
             hover:text-sky-600 
             transition 
             cursor-pointer
-          "
-        >
-          <HiChevronLeft size={32} />
-        </Link>
-        {conversation.isGroup ? (
-          <AvatarGroup users={conversation.users} />
-        ) : (
-          <UserAvatar user={otherUser} />
-        )}
-        <div className="flex flex-col">
-          <div className='text-white'>{conversation.name || otherUser.name}</div>
-          <div className="text-sm font-light text-neutral-500">
-            {statusText}
+          '
+          >
+            <HiChevronLeft size={32} />
+          </Link>
+          {conversation.isGroup ? (
+            <AvatarGroup users={conversation.users} />
+          ) : (
+            <UserAvatar user={otherUser} />
+          )}
+          <div className='flex flex-col'>
+            <div className='text-white'>
+              {conversation.name || otherUser.name}
+            </div>
+            <div className='text-sm font-light text-neutral-500'>
+              {statusText}
+            </div>
+          </div>
+        </div>
+        <div className='flex gap-10'>
+          <div
+            onClick={() => setDrawerOpen(true)}
+            className='flex flex-col gap-3 items-center cursor-pointer hover:opacity-75'
+          >
+            <div className='w-10 h-10 bg-red-800 text-white rounded-md flex items-center justify-center'>
+              <IoTrash size={20} />
+            </div>
+            {/* <div className='text-sm font-light text-neutral-600'>Delete</div> */}
           </div>
         </div>
       </div>
-      <HiEllipsisHorizontal
-        size={32}
-        onClick={() => setDrawerOpen(true)}
-        className="
-          text-sky-500
-          cursor-pointer
-          hover:text-sky-600
-          transition
-        "
-      />
-    </div>
     </>
   );
-}
- 
+};
+
 export default Header;

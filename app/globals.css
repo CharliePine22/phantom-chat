@@ -34,10 +34,15 @@ body,
 }
 
 .conversation-box-wrapper .avatar-wrapper div {
-  transform: perspective(29px) skewX(-15deg) rotateY(0.2deg);
-  left: -24px;
-  height: 74px;
+  transform: perspective(29px) skewX(5deg) rotateY(3deg);
+  left: -40px;
+  top: 13px;
+  height: 75px;
   width: 95px;
+  box-shadow: -8px -5px 0px black, -8px 5px 0px black;
+  border-width: 5px 2px 5px 3px;
+  border-style: solid;
+  border-color: white;
 }
 
 /* Box Wrapper for the list of friends in the friends list section */
@@ -64,6 +69,26 @@ body,
   background-color: white;
   color: black;
   font-size: 1.4rem;
+  font-family: fantasy;
+  padding: 2px;
+  border-top: 3px solid black;
+  border-left: 3px solid black;
+  border-bottom: 3px solid black;
+}
+
+.persona-box-date > div > span:first-of-type {
+  border-right: 0;
+}
+
+.persona-box-date > div > span:nth-child(2),
+.persona-box-date > div > span:nth-child(3) {
+  border-left: 0;
+  border-right: 0;
+}
+
+.persona-box-date > div > span:nth-child(4) {
+  border-left: 0;
+  border-right: 3px solid black;
 }
 
 .persona-box-date span:last-of-type {
@@ -104,21 +129,36 @@ body,
   bottom: 0;
   left: 0;
   z-index: -1;
-  transform: skew(-15deg);
+  transform: perspective(8px) skew(-10deg) rotateY(-0.2deg);
   background: black;
-  outline: 3px solid white;
-  box-shadow: -8px 10px 3px rgba(0, 0, 0, 0.5);
+  /* outline: 3px solid white; */
+  /* box-shadow: -8px 10px 3px rgba(0, 0, 0, 0.5); */
 }
 
-.conversation-box:hover {
-  color: black !important;
+.conversation-box:hover .inner-persona-box::before {
+  content: '';
+  background-color: #fe0000;
+  position: absolute;
+  left: 77px;
+  top: 5px;
+  height: 91%;
+  width: 78%;
+  z-index: -1;
+  transform: perspective(645px) skewX(14deg) rotateY(2deg) rotateX(-7deg);
 }
 
-.conversation-box:hover::before {
-  background: white;
-  outline: 3px solid black;
-  color: black;
-}
+/* .conversation-box:hover .inner-persona-box::after {
+  content: '';
+  background-color: black;
+  position: absolute;
+  left: 77px;
+  top: 4px;
+  height: 92%;
+  width: 78%;
+  z-index: -1;
+  transform: perspective(645px) skewX(18deg) rotateY(2deg) rotateX(-7deg);
+} */
+
 /*! Conversation box wrapper end */
 
 /** Image styling for the avatars/avatar containers on the friends list page */
@@ -200,7 +240,7 @@ body,
 /*! Message box wrapper of the chat messages end */
 
 .inner-persona-box {
-  margin-left: 108px !important;
+  margin-left: 75px !important;
 }
 
 .persona-text-box:hover > .inner-persona-box {
@@ -285,8 +325,8 @@ body,
 }
 
 .conversation-box-wrapper > div span {
-  right: 263px;
-  top: 60px;
+  right: 291px;
+  top: 71px;
 }
 
 .message-left .date-container {
@@ -356,6 +396,7 @@ body,
 #submit-button:hover .persona-IM {
   color: black;
   z-index: 100;
+  display: block;
   animation: tiltBounce 0.15s ease;
   animation-fill-mode: forwards;
 }
@@ -475,6 +516,10 @@ body,
   .message-avatar-wrapper img {
     height: 86px !important;
   }
+
+  .message-left {
+    max-width: 70%;
+  }
 }
 
 /* MOBILE DEVICES STYLING */
@@ -485,8 +530,8 @@ body,
   }
 
   .message-left {
-    margin-left: 105px;
-    max-width: 70%;
+    margin-left: 97px;
+    max-width: 67%;
     min-width: 50px;
     justify-content: center;
   }
