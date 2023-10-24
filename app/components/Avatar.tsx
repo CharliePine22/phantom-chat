@@ -37,7 +37,10 @@ const Avatar: React.FC<AvatarProps> = ({ user }) => {
         relative 
         inline-block 
         overflow-hidden
+        h-[90px]
+        w-[95px]
         friend-avatar-box
+        left-[9px]
         '
         style={{ backgroundColor: randomColor }}
       >

@@ -26,6 +26,14 @@ body,
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'P5Name';
+  src: url('../fonts/Persona5Name.ttf');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .conversation-box-wrapper {
   position: absolute;
   top: 0;
@@ -35,11 +43,11 @@ body,
 
 .conversation-box-wrapper .avatar-wrapper div {
   transform: perspective(29px) skewX(5deg) rotateY(3deg);
-  left: -40px;
-  top: 13px;
-  height: 75px;
-  width: 95px;
-  box-shadow: -8px -5px 0px black, -8px 5px 0px black;
+  left: -34px;
+  top: 2px;
+  height: 80px;
+  width: 85px;
+  box-shadow: -9px -3px 0px black, -9px 4px 0px black, 5px 4px 0px black;
   border-width: 5px 2px 5px 3px;
   border-style: solid;
   border-color: white;
@@ -58,9 +66,9 @@ body,
 
 /** Date of last message in the conversations list page */
 .persona-box-date {
-  color: white;
   position: absolute;
-  top: -15px;
+  top: -20px;
+  left: 49px;
   font-family: P5Menu !important;
   z-index: 10;
 }
@@ -91,8 +99,14 @@ body,
   border-right: 3px solid black;
 }
 
-.persona-box-date span:last-of-type {
-  /* font-family: Expose !important; */
+.weekend {
+  background-color: red !important;
+  color: white !important;
+  font-size: 1.2rem !important;
+  padding: 4.5px !important;
+  padding-right: 6px !important;
+  position: relative;
+  top: -2px;
 }
 /*! Date of last messsage end */
 
@@ -115,7 +129,7 @@ body,
 /** Wrapper and styling of each ongoing conversation in users list */
 .conversation-box {
   margin: 0 auto 40px;
-  width: 335px;
+  width: 330px;
   max-width: 100%;
   z-index: 0;
   color: white;
@@ -128,8 +142,8 @@ body,
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: -1;
-  transform: perspective(8px) skew(-10deg) rotateY(-0.2deg);
+  z-index: -2;
+  transform: perspective(8px) skew(-10deg) rotateY(-0.25deg);
   background: black;
   /* outline: 3px solid white; */
   /* box-shadow: -8px 10px 3px rgba(0, 0, 0, 0.5); */
@@ -139,25 +153,19 @@ body,
   content: '';
   background-color: #fe0000;
   position: absolute;
-  left: 77px;
-  top: 5px;
-  height: 91%;
+  left: 60px;
+  top: 0px;
+  height: 87%;
   width: 78%;
-  z-index: -1;
-  transform: perspective(645px) skewX(14deg) rotateY(2deg) rotateX(-7deg);
+  z-index: -2;
+  transform: perspective(23px) skewX(17deg) rotateY(-1deg) rotateX(2deg)
+    skewY(-7deg) rotate(3deg);
 }
 
-/* .conversation-box:hover .inner-persona-box::after {
-  content: '';
-  background-color: black;
-  position: absolute;
-  left: 77px;
-  top: 4px;
-  height: 92%;
-  width: 78%;
-  z-index: -1;
-  transform: perspective(645px) skewX(18deg) rotateY(2deg) rotateX(-7deg);
-} */
+.conversation-box-name {
+  font-family: P5Name;
+  font-weight: 500;
+}
 
 /*! Conversation box wrapper end */
 
@@ -240,7 +248,7 @@ body,
 /*! Message box wrapper of the chat messages end */
 
 .inner-persona-box {
-  margin-left: 75px !important;
+  margin-left: 80px !important;
 }
 
 .persona-text-box:hover > .inner-persona-box {

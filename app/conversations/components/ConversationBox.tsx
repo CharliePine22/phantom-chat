@@ -114,7 +114,14 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
             <span>{personaMonth}</span>
             <span>/</span>
             <span>{personaDate}</span>
-            <span> {personaDay}</span>
+            <span
+              className={
+                personaDay == 'Su' || personaDay == 'Sa' ? 'weekend' : ''
+              }
+            >
+              {' '}
+              {personaDay}
+            </span>
           </div>
         )}
       </div>
@@ -129,7 +136,9 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         <div className='focus:outline-none'>
           <span className='absolute inset-0' aria-hidden='true' />
           <div className='flex justify-between items-center mb-1'>
-            <p className='text-md font-medium'>{data.name || otherUser.name}</p>
+            <p className='text-[1.4rem]/[1.5rem] whitespace-nowrap conversation-box-name'>
+              {data.name || otherUser.name}
+            </p>
             {lastMessage?.createdAt && (
               <p
                 className='
@@ -137,7 +146,6 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
                   font-light
                   relative
                   top-[-10px]
-                  right-[-7px]
                 '
               >
                 {format(new Date(lastMessage.createdAt), 'p')}
@@ -148,7 +156,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
             className={clsx(
               `
               truncate 
-              text-[1.3rem]/[1.4rem]
+              text-[1.2rem]/[1.4rem]
               font-medium
               `,
               hasSeen ? 'text-gray-400' : 'text-white'
