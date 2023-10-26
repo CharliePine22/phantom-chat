@@ -53,6 +53,10 @@ body,
   border-color: white;
 }
 
+.save-data {
+  filter: drop-shadow(1px 1px 0px white) drop-shadow(1px 1px 0px white);
+}
+
 /* Box Wrapper for the list of friends in the friends list section */
 .friend-avatar-box {
   transform: perspective(15px) skewX(6deg) rotateY(0.5deg);
@@ -153,13 +157,13 @@ body,
   content: '';
   background-color: #fe0000;
   position: absolute;
-  left: 60px;
-  top: 0px;
-  height: 87%;
-  width: 78%;
+  left: 13px;
+  top: 2px;
+  height: 92%;
+  width: 90%;
   z-index: -2;
-  transform: perspective(23px) skewX(17deg) rotateY(-1deg) rotateX(2deg)
-    skewY(-7deg) rotate(3deg);
+  transform: perspective(20px) skewX(17deg) rotateY(-1deg) skewY(-7deg)
+    rotate(5deg);
 }
 
 .conversation-box-name {

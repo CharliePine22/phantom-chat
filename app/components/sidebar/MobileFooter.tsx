@@ -1,9 +1,10 @@
 'use client';
-
+import { useState } from 'react';
 import useConversation from '@/app/hooks/useConversation';
 import useRoutes from '@/app/hooks/useRoutes';
 import MobileItem from './MobileItem';
 import UserAvatar from '../UserAvatar';
+import SettingsModal from './SettingsModal';
 import { User } from '@prisma/client';
 
 interface MobileSidebarProps {
@@ -12,6 +13,7 @@ interface MobileSidebarProps {
 
 const MobileFooter: React.FC<MobileSidebarProps> = ({ currentUser }) => {
   const routes = useRoutes();
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const { isOpen } = useConversation();
 
   if (isOpen) {
@@ -19,8 +21,15 @@ const MobileFooter: React.FC<MobileSidebarProps> = ({ currentUser }) => {
   }
 
   return (
-    <div
-      className='
+    <>
+      <SettingsModal
+        currentUser={currentUser}
+        isOpen={settingsOpen}
+        onClose={() => setSettingsOpen(false)}
+      />
+
+      <div
+        className='
         fixed 
         justify-between 
         w-full 
@@ -32,24 +41,25 @@ const MobileFooter: React.FC<MobileSidebarProps> = ({ currentUser }) => {
         border-t-[1px] 
         lg:hidden
       '
-    >
-      <div
-        // onClick={() => setIsOpen(true)}
-        className='cursor-pointer hover:opacity-75 transition px-4'
       >
-        <UserAvatar user={currentUser} />
+        <div
+          onClick={() => setSettingsOpen(true)}
+          className='cursor-pointer hover:opacity-75 transition px-4'
+        >
+          <UserAvatar user={currentUser} />
+        </div>
+        {routes.map((route) => (
+          <MobileItem
+            key={route.href}
+            href={route.href}
+            active={route.active}
+            icon={route.icon}
+            onClick={route.onClick}
+            title={route.title}
+          />
+        ))}
       </div>
-      {routes.map((route) => (
-        <MobileItem
-          key={route.href}
-          href={route.href}
-          active={route.active}
-          icon={route.icon}
-          onClick={route.onClick}
-          title={route.title}
-        />
-      ))}
-    </div>
+    </>
   );
 };
 

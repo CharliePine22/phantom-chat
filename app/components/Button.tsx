@@ -1,7 +1,7 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
 interface ButtonProps {
-  type?: "button" | "submit" | "reset" | undefined;
+  type?: 'button' | 'submit' | 'reset' | undefined;
   fullWidth?: boolean;
   children?: React.ReactNode;
   onClick?: () => void;
@@ -11,7 +11,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({
-  type = "button",
+  type = 'button',
   fullWidth,
   children,
   onClick,
@@ -19,12 +19,14 @@ const Button: React.FC<ButtonProps> = ({
   danger,
   disabled,
 }) => {
-  return ( 
+  console.log(children);
+  return (
     <button
       onClick={onClick}
       type={type}
       disabled={disabled}
-      className={clsx(`
+      className={clsx(
+        `
         flex 
         justify-center 
         rounded-md 
@@ -39,13 +41,16 @@ const Button: React.FC<ButtonProps> = ({
         disabled && 'opacity-50 cursor-default',
         fullWidth && 'w-full',
         secondary ? 'text-blue' : 'text-white',
-        danger && 'bg-rose-500 hover:bg-rose-600 focus-visible:outline-rose-600',
-        !secondary && !danger && 'bg-red-600 hover:bg-red-700 focus-visible:outline-rose-600'
+        danger &&
+          'bg-rose-500 hover:bg-rose-600 focus-visible:outline-rose-600',
+        !secondary &&
+          !danger &&
+          'bg-white hover:bg-red-700 text-[#fe0000] focus-visible:outline-rose-600'
       )}
     >
       {children}
     </button>
-   );
-}
- 
+  );
+};
+
 export default Button;
