@@ -72,15 +72,15 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
             <h2
               className='
               save-data
-                text-[2.5rem]
+                text-[4rem]
                 font-bold 
                 leading-8 
                 text-black
               '
             >
-              SAVE DATA
+              SAVEDATA
             </h2>
-            <p className='mt-1 text-sm leading-6 text-white'>
+            <p className='mt-6 text-sm leading-6 text-white'>
               Change your name or avatar.
             </p>
 

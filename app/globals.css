@@ -54,12 +54,20 @@ body,
 }
 
 .save-data {
-  filter: drop-shadow(1px 1px 0px white) drop-shadow(1px 1px 0px white);
+  filter: drop-shadow(-5px -5px 0px white) drop-shadow(0px 6px 0px white)
+    drop-shadow(13px -1px 0px white);
+  letter-spacing: 1px;
+  transform: perspective(60px) skewX(9deg) rotateY(9deg) translateZ(-20px)
+    translateY(5px);
+  font-family: fantasy;
+  width: fit-content;
+  -webkit-text-stroke-color: black;
+  -webkit-text-stroke-width: 1px;
 }
 
 /* Box Wrapper for the list of friends in the friends list section */
 .friend-avatar-box {
-  transform: perspective(15px) skewX(6deg) rotateY(0.5deg);
+  transform: perspective(60px) skewX(6deg) rotateY(0.5deg);
 }
 
 .friend-name {
