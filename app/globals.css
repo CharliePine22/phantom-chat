@@ -55,10 +55,9 @@ body,
 
 .save-data {
   filter: drop-shadow(-5px -5px 0px white) drop-shadow(0px 6px 0px white)
-    drop-shadow(13px -1px 0px white);
+    drop-shadow(-4px -1px 0px white) drop-shadow(20px 0px 0px white);
   letter-spacing: 1px;
-  transform: perspective(60px) skewX(9deg) rotateY(9deg) translateZ(-20px)
-    translateY(5px);
+  transform: perspective(85px) skewX(11deg) rotateY(9deg) translateZ(-19px);
   font-family: fantasy;
   width: fit-content;
   -webkit-text-stroke-color: black;
@@ -67,7 +66,7 @@ body,
 
 /* Box Wrapper for the list of friends in the friends list section */
 .friend-avatar-box {
-  transform: perspective(60px) skewX(6deg) rotateY(0.5deg);
+  transform: perspective(60px) skewX(6deg) rotateY(1.5deg);
 }
 
 .friend-name {
@@ -76,13 +75,27 @@ body,
   letter-spacing: -0.025em !important;
 }
 
+/** Background for chat wallpaper */
+
+.persona-bg {
+  background-image: url('../public/images/persona-bg.jpg');
+  /* background-size: 100% 100%; */
+}
+
+.persona-bg2 {
+  background-image: url('../public/images/persona-bg2.jpg');
+  /* background-size: 100% 100%; */
+}
+
+/*! Background for chat wallpaper END*/
+
 /** Date of last message in the conversations list page */
 .persona-box-date {
   position: absolute;
-  top: -20px;
-  left: 49px;
-  font-family: P5Menu !important;
+  top: -28px;
+  left: 50px;
   z-index: 10;
+  pointer-events: none;
 }
 
 .persona-box-date span {
@@ -131,6 +144,7 @@ body,
   position: relative;
   font-family: Expose !important;
   letter-spacing: 0.075em !important;
+  user-select: none;
 }
 
 .persona-menu {
@@ -167,10 +181,10 @@ body,
   position: absolute;
   left: 13px;
   top: 2px;
-  height: 92%;
+  height: 93%;
   width: 90%;
   z-index: -2;
-  transform: perspective(20px) skewX(17deg) rotateY(-1deg) skewY(-7deg)
+  transform: perspective(16px) skewX(17deg) rotateY(-1deg) skewY(-7deg)
     rotate(5deg);
 }
 
@@ -219,7 +233,7 @@ body,
   font-size: 1.4rem;
   font-family: Expose;
   letter-spacing: 0.3rem;
-  margin-bottom: 7px;
+  margin-bottom: 10px;
 }
 
 /*! Mobile Sidebar Styles end */
@@ -566,5 +580,10 @@ body,
 
   .persona-text-box:first-of-type {
     margin-top: 45px;
+  }
+
+  .persona-bg,
+  .persona-bg2 {
+    background: #a40001;
   }
 }

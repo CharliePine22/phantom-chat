@@ -48,7 +48,6 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
     setValue('image', result.info.secure_url, {
       shouldValidate: true,
     });
-    console.log('TESTING UPLOAD');
   };
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
@@ -72,7 +71,10 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
             <h2
               className='
               save-data
-                text-[4rem]
+              relative 
+              top-5
+              left-[18%]
+                text-[5rem]
                 font-bold 
                 leading-8 
                 text-black
@@ -80,11 +82,11 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
             >
               SAVEDATA
             </h2>
-            <p className='mt-6 text-sm leading-6 text-white'>
+            {/* <p className='mt-10 text-sm leading-6 text-white'>
               Change your name or avatar.
-            </p>
+            </p> */}
 
-            <div className='mt-10 flex flex-col gap-y-8 text-white'>
+            <div className='mt-[4.2rem] flex flex-col gap-y-8 text-white'>
               <Input
                 disabled={isLoading}
                 label='Name'

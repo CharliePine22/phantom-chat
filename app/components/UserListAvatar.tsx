@@ -40,8 +40,8 @@ const UserListAvatar: React.FC<UserListAvatarProps> = ({ user }) => {
             bg-green-500 
             ring-2 
             ring-white 
-            top-0 
-            right-0
+            top-[2px]
+            right-[12px]
             h-2 
             w-2 
             md:h-3 

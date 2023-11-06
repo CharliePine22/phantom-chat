@@ -40,6 +40,7 @@ const MobileFooter: React.FC<MobileSidebarProps> = ({ currentUser }) => {
         bg-[#A40001]
         border-t-[1px] 
         lg:hidden
+        shadow-[-7px_-5px_3px_rgba(0,0,0,.5)];
       '
       >
         <div

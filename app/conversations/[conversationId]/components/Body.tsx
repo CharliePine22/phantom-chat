@@ -118,7 +118,7 @@ const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
   };
 
   return (
-    <div className='flex-1 overflow-y-auto overflow-x-hidden relative message-body z-10'>
+    <div className='flex-1 overflow-y-auto overflow-x-hidden relative message-body z-10 bg-[#A40001]'>
       {messages.map((message, i) => (
         <MessageBox
           isLast={i === messages.length - 1}

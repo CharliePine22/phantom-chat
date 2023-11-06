@@ -1,7 +1,8 @@
+// bg-[#A40001]
 const EmptyState = () => {
-  return ( 
-    <div 
-      className="
+  return (
+    <div
+      className='
         px-4 
         py-10 
         sm:px-6 
@@ -11,16 +12,15 @@ const EmptyState = () => {
         flex 
         justify-center 
         items-center 
-        bg-[#A40001]
-      "
+        '
     >
-      <div className="text-center items-center flex flex-col">
-        <h3 className="mt-2 text-2xl font-semibold text-white">
+      <div className='text-center items-center flex flex-col'>
+        <h3 className='mt-2 text-2xl font-semibold text-white'>
           Select a chat or start a new conversation
         </h3>
       </div>
     </div>
   );
-}
- 
+};
+
 export default EmptyState;
