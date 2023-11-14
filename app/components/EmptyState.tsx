@@ -15,8 +15,8 @@ const EmptyState = () => {
         '
     >
       <div className='text-center items-center flex flex-col'>
-        <h3 className='mt-2 text-2xl font-semibold text-white'>
-          Select a chat or start a new conversation
+        <h3 className='mt-2 text-5xl font-semibold text-white friend-name chat-default-msg'>
+          Choose someone from your friends list to begin chatting.
         </h3>
       </div>
     </div>

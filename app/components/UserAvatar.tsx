@@ -21,8 +21,9 @@ const UserAvatar: React.FC<AvatarProps> = ({ user }) => {
         overflow-hidden
         h-[50px]
         w-[50px]
-        md:h-11 
-        md:w-11
+        md:h-14 
+        md:w-14
+        bg-[#ff0000]
         '
       >
         <Image

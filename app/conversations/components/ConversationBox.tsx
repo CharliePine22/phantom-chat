@@ -102,7 +102,6 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         px-4
         transition
         cursor-pointer
-        bg-[#]
         `)
 
         // selected ? 'bg-neutral-800' : 'bg-neutral-950'

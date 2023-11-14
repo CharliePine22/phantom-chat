@@ -37,11 +37,6 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
 
   return (
     <>
-      {/* <ProfileDrawer
-        data={conversation}
-        isOpen={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-      /> */}
       <ConfirmModal isOpen={drawerOpen} onClose={() => setDrawerOpen(false)} />
       <div
         className='

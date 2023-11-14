@@ -60,7 +60,6 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast, setCoords }) => {
 
   // Only want to change message box shapes when the conversation starts
   useEffect(() => {
-    console.log(isOwn)
     // Generate random number to determine skew to make them slightly different
     const randomNumber: number = Math.floor(Math.random() * (25 - 5 + 1) + 5); // Gemerate mumber between 3 and 12
     setSkewAngle(randomNumber * -1);
@@ -80,7 +79,12 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast, setCoords }) => {
           isOwn ? 'message-right' : 'message-left'
         }`
       }
-      style={{ '--skew-angle': skewAngle + 'deg', '--box-placement': boxPlacement + 'px' } as React.CSSProperties}
+      style={
+        {
+          '--skew-angle': skewAngle + 'deg',
+          '--box-placement': boxPlacement + 'px',
+        } as React.CSSProperties
+      }
     >
       {!isOwn && (
         <div className={avatar}>

@@ -73,14 +73,18 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
               save-data
               relative 
               top-5
-              left-[18%]
-                text-[5rem]
+              left-[5%]
+                text-[4.5rem]
                 font-bold 
                 leading-8 
-                text-black
+                text-white
               '
             >
-              SAVEDATA
+              Sa
+              <span className='text-[#FF1400] stroke-[1px] stroke-[#FF1400]'>
+                V
+              </span>
+              E
             </h2>
             {/* <p className='mt-10 text-sm leading-6 text-white'>
               Change your name or avatar.

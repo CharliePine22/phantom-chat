@@ -1,6 +1,6 @@
 'use client';
 
-import ReactSelect from 'react-select'
+import ReactSelect from 'react-select';
 
 interface SelectProps {
   label: string;
@@ -17,37 +17,37 @@ const Select: React.FC<SelectProps> = ({
   options,
   disabled,
 }) => {
-  return ( 
-    <div className="z-[100]">
+  return (
+    <div className='z-[100]'>
       <label
-        className="
+        className='
           block 
           text-sm 
           font-medium 
           leading-6 
-          text-gray-900
-        "
+          text-white
+        '
       >
         {label}
       </label>
-      <div className="mt-2">
-      <ReactSelect
-        isDisabled={disabled}
-        value={value}
-        onChange={onChange}
-        isMulti
-        options={options}
-        menuPortalTarget={document.body}
-        styles={{
-          menuPortal: (base) => ({ ...base, zIndex: 9999 })
-        }}
-        classNames={{
-          control: () => 'text-sm',
-        }}
-      />
+      <div className='mt-2 cursor-pointer'>
+        <ReactSelect
+          isDisabled={disabled}
+          value={value}
+          onChange={onChange}
+          isMulti
+          options={options}
+          menuPortalTarget={document.body}
+          styles={{
+            menuPortal: (base) => ({ ...base, zIndex: 9999 }),
+          }}
+          classNames={{
+            control: () => 'text-sm cursor-pointer',
+          }}
+        />
       </div>
     </div>
-   );
-}
- 
+  );
+};
+
 export default Select;

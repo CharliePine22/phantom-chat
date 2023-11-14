@@ -54,14 +54,14 @@ body,
 }
 
 .save-data {
-  filter: drop-shadow(-5px -5px 0px white) drop-shadow(0px 6px 0px white)
-    drop-shadow(-4px -1px 0px white) drop-shadow(20px 0px 0px white);
+  filter: drop-shadow(-5px -5px 0px black) drop-shadow(0px 5px 0px black)
+    drop-shadow(-6px -1px 0px black) drop-shadow(11px 0px 0px black);
   letter-spacing: 1px;
-  transform: perspective(85px) skewX(11deg) rotateY(9deg) translateZ(-19px);
+  transform: perspective(85px) skewX(8deg) rotateY(7deg) translateZ(-5px);
   font-family: fantasy;
   width: fit-content;
-  -webkit-text-stroke-color: black;
-  -webkit-text-stroke-width: 1px;
+  /* -webkit-text-stroke-color: white;
+  -webkit-text-stroke-width: 1px; */
 }
 
 /* Box Wrapper for the list of friends in the friends list section */
@@ -141,7 +141,6 @@ body,
 }
 
 .persona-IM {
-  position: relative;
   font-family: Expose !important;
   letter-spacing: 0.075em !important;
   user-select: none;
@@ -221,8 +220,8 @@ body,
   background: black;
   outline: 5px solid black;
   box-shadow: -9px 6px 7px black;
-  border-top: 8px solid white;
-  border-right: 1px solid white;
+  border-top: 6px solid white;
+  border-right: 2px solid white;
   border-bottom: 3px solid white;
   border-left: 4px solid white;
 }
@@ -299,6 +298,11 @@ body,
   transform: translate(7%, -24%) skewX(-10deg);
   height: 84px !important;
   width: 100% !important;
+}
+
+.no-transform img {
+  transform: none;
+  height: 100% !important;
 }
 
 /*! Styling for the avatar that appears when you're chatting with another user END */
@@ -397,6 +401,7 @@ body,
 
 .persona-menu-font {
   font-family: P5Menu !important;
+  filter: drop-shadow(-3px 1px 1px black);
 }
 
 /*! Message box styling END */
@@ -524,6 +529,13 @@ body,
   box-shadow: -1px 2px 8px black;
 }
 
+.chat-default-msg {
+  font-family: Expose !important;
+  letter-spacing: 0.025em !important;
+  text-shadow: -8px 8px 0px black;
+  filter: drop-shadow(2px 4px 6px black);
+}
+
 /* LAPTOP STYLING */
 @media screen and (min-width: 1024px) {
   .message-left {
@@ -538,6 +550,11 @@ body,
   .message-avatar-wrapper img {
     transform: translate(10%, -30%) skewX(-10deg);
     height: 115px !important;
+  }
+
+  .no-transform img {
+    transform: none;
+    height: 100% !important;
   }
 
   .persona-text-box:first-of-type {
