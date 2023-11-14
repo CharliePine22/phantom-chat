@@ -17,7 +17,7 @@ const MessageBoxAvatar: React.FC<AvatarProps> = ({ user }) => {
   const senderImage = user?.image?.split('.');
   // Transformed styles = PNG, WEBP, No Transform = JPEG, JPG
   const imgType = senderImage && senderImage[senderImage.length - 1];
-  const transformedImage = transformedTypes.includes(imgType);
+  const transformedImage = imgType && transformedTypes.includes(imgType);
   const finalizedCSS = transformedImage
     ? 'message-avatar-wrapper w-full'
     : 'message-avatar-wrapper no-transform w-full';
