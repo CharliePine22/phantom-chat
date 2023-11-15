@@ -67,7 +67,7 @@ const Form = () => {
           register={register}
           errors={errors}
           required
-          placeholder='Write a message'
+          placeholder='Type a message'
         />
         <button
           type='submit'
@@ -82,7 +82,6 @@ const Form = () => {
             relative
           '
         >
-          {/* <p className='persona-IM text-2xl text-white'>Send</p> */}
           <span className='fallback persona-IM text-white text-2xl'>Send</span>
           <div className='shape-wrapper'>
             <div className='shape red-fill jelly'>

@@ -308,6 +308,7 @@ body,
 /*! Styling for the avatar that appears when you're chatting with another user END */
 
 /** Message box styling */
+
 .message-body::-webkit-scrollbar,
 .conversation-list-wrapper::-webkit-scrollbar {
   position: fixed;
@@ -434,6 +435,7 @@ body,
 
 #submit-button:hover .persona-IM {
   color: black;
+  position: relative;
   z-index: 100;
   display: block;
   animation: tiltBounce 0.15s ease;
@@ -525,7 +527,7 @@ body,
 }
 
 .settings-modal {
-  border: 1px solid black;
+  border: 2px solid black;
   box-shadow: -1px 2px 8px black;
 }
 

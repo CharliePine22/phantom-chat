@@ -88,6 +88,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
       <aside
         className={clsx(
           `
+          bg-[#BA0001]
         conversation-list-wrapper
         fixed 
         inset-y-0 
