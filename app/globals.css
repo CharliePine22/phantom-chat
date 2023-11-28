@@ -41,7 +41,26 @@ body,
   z-index: -1;
 }
 
+.conversation-box-wrapper-group {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
 .conversation-box-wrapper .avatar-wrapper div {
+  transform: perspective(29px) skewX(5deg) rotateY(3deg);
+  left: -34px;
+  top: 2px;
+  height: 80px;
+  width: 85px;
+  box-shadow: -9px -3px 0px black, -9px 4px 0px black, 5px 4px 0px black;
+  border-width: 5px 2px 5px 3px;
+  border-style: solid;
+  border-color: white;
+}
+
+.group-avatar-wrapper {
   transform: perspective(29px) skewX(5deg) rotateY(3deg);
   left: -34px;
   top: 2px;

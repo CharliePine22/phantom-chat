@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import AuthForm from './components/AuthForm';
-import { BsSun, BsMoon, BsSunFill, BsMoonFill } from 'react-icons/bs';
+import { BsSunFill, BsMoonFill } from 'react-icons/bs';
 
 let currentTheme = 'day';
 const useChangeTheme = () => {

@@ -69,7 +69,8 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
             <HiChevronLeft size={32} />
           </Link>
           {conversation.isGroup ? (
-            <AvatarGroup users={conversation.users} />
+            // <AvatarGroup users={conversation.users} />
+            <span />
           ) : (
             <UserAvatar user={otherUser} />
           )}

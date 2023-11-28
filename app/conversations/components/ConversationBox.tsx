@@ -84,9 +84,14 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         return 'Sa';
     }
   };
+
+  // Date conversions
   const personaMonth = data?.lastMessageAt.getMonth() + 1;
   const personaDate = data?.lastMessageAt.getDate();
   const personaDay = convertNumberToDayOfWeek(data?.lastMessageAt.getDay());
+
+  console.log(data.lastMessageAt);
+
   return (
     <div
       onClick={handleClick}
@@ -125,13 +130,15 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         )}
       </div>
       {data.isGroup ? (
-        <AvatarGroup users={data.users} />
+        <div className='conversation-box-wrapper-group'>
+          <AvatarGroup users={data.users} />
+        </div>
       ) : (
         <div className='conversation-box-wrapper'>
           <Avatar user={otherUser} />
         </div>
       )}
-      <div className={`min-w-0 flex-1 ${!data.isGroup && 'inner-persona-box'}`}>
+      <div className='min-w-0 flex-1 inner-persona-box'>
         <div className='focus:outline-none'>
           <span className='absolute inset-0' aria-hidden='true' />
           <div className='flex justify-between items-center mb-1'>

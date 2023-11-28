@@ -19,6 +19,7 @@ const AuthForm = () => {
   const router = useRouter();
   const [variant, setVariant] = useState<Variant>('LOGIN');
   const [isLoading, setIsLoading] = useState(false);
+  const [showCallingCard, setShowCallingCard] = useState(false);
 
   useEffect(() => {
     if (session?.status === 'authenticated') {
@@ -46,6 +47,9 @@ const AuthForm = () => {
     },
   });
 
+  // delay time for calling card to appear
+  const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
+
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     setIsLoading(true);
 
@@ -64,6 +68,8 @@ const AuthForm = () => {
           }
 
           if (callback?.ok) {
+            setShowCallingCard(true);
+            delay(8000);
             router.push('/conversations');
           }
         })
@@ -114,6 +120,14 @@ const AuthForm = () => {
         paddingRight: '2rem',
       }}
     >
+      {showCallingCard && (
+        <div className='absolute top-0 left-0 z-50 h-full w-full'>
+          <img
+            className='absolute top-0 left-1/2 transform -translate-x-2/4 h-[300px] w-[375px] lg:w-[500px] lg:h-[320px]'
+            src='/images/calling-card.png'
+          />
+        </div>
+      )}
       <div
         className='
         bg-white
