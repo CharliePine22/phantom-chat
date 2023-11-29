@@ -121,11 +121,13 @@ const AuthForm = () => {
       }}
     >
       {showCallingCard && (
-        <div className='absolute top-0 left-0 z-50 h-full w-full'>
+        <div className='absolute top-0 left-0 z-50 h-full w-full overflow-hidden backdrop-blur-sm backdrop-brightness-[.3]'>
           <img
-            className='absolute top-0 left-1/2 transform -translate-x-2/4 h-[300px] w-[375px] lg:w-[500px] lg:h-[320px]'
+            className='absolute top-0 left-1/2 transform -translate-x-2/4 h-[290px] w-[375px] lg:w-[500px] lg:h-[320px] calling-card brightness-200'
             src='/images/calling-card.png'
           />
+          <div className='spotlight1' />
+          <div className='spotlight2' />
         </div>
       )}
       <div
@@ -174,6 +176,7 @@ const AuthForm = () => {
             type='password'
           />
           <div>
+            <div className='mt-10' />
             <Button disabled={isLoading} fullWidth type='submit'>
               {variant === 'LOGIN' ? 'Sign in' : 'Register'}
             </Button>

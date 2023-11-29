@@ -152,6 +152,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
               selected={conversationId === item.id}
             />
           ))}
+          {/*  {items.length == 0 && } */}
         </div>
       </aside>
     </>

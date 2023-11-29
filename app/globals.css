@@ -83,6 +83,80 @@ body,
   -webkit-text-stroke-width: 1px; */
 }
 
+.calling-card {
+  animation: showCard 800ms forwards ease-in-out;
+  box-shadow: 0px -2px 9px 4px black;
+}
+
+.spotlight1,
+.spotlight2 {
+  height: 95px;
+  width: 55px;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(106, 106, 106, 0.6) 50%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  position: absolute;
+  bottom: 30px;
+  border-radius: 5px;
+}
+
+.spotlight1 {
+  left: 10%;
+  transform: rotate(20deg);
+}
+
+.spotlight2 {
+  right: 10%;
+  transform: rotate(-20deg);
+}
+
+.spotlight1::before,
+.spotlight2::before {
+  content: '';
+  position: absolute;
+  background: white;
+  height: 10px;
+  width: 100%;
+  border-radius: 45%;
+  filter: brightness(200%) drop-shadow(0px -2px 3px rgba(255, 255, 255, 0.6));
+}
+
+.spotlight1::after,
+.spotlight2::after {
+  content: '';
+  position: absolute;
+  top: -164px;
+  border-radius: 15% 15% 0% 0%;
+  left: 0px;
+  width: 100%;
+  height: 170px;
+  transform: rotateY(-25deg);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.430745) 50%,
+    rgba(255, 255, 255, 0.038986) 100%
+  );
+  box-shadow: 0px -370px 84px -4px rgba(255, 255, 255, 1);
+  /* border-left: 40px solid transparent;
+  border-right: 40px solid transparent;
+  border-top: 200px solid rgba(255, 255, 255, 0.5); */
+}
+
+@keyframes showCard {
+  0% {
+    transform: translateY(0) translateX(-50%) rotate3d(0, 0, 0, 0deg) scale(0.1);
+  }
+
+  100% {
+    transform: translateY(80%) translateX(-50%) rotate3d(1, 5, 2, 715deg)
+      scale(1.05);
+  }
+}
+
 /* Box Wrapper for the list of friends in the friends list section */
 .friend-avatar-box {
   transform: perspective(60px) skewX(6deg) rotateY(1.5deg);
@@ -95,7 +169,6 @@ body,
 }
 
 /** Background for chat wallpaper */
-
 .persona-bg {
   background-image: url('../public/images/persona-bg.jpg');
   /* background-size: 100% 100%; */
@@ -581,6 +654,20 @@ body,
   .persona-text-box:first-of-type {
     margin-top: 56px;
   }
+
+  .persona-bg2 {
+    background-size: 100% 100%;
+  }
+
+  .spotlight1 {
+    transform: rotate(30deg);
+    left: 15%;
+  }
+
+  .spotlight2 {
+    transform: rotate(-30deg);
+    right: 15%;
+  }
 }
 
 /* TABLET STYLING */
@@ -591,6 +678,14 @@ body,
 
   .message-left {
     max-width: 70%;
+  }
+
+  .spotlight1 {
+    transform: rotate(30deg);
+  }
+
+  .spotlight2 {
+    transform: rotate(-30deg);
   }
 }
 
@@ -623,5 +718,13 @@ body,
   .persona-bg,
   .persona-bg2 {
     background: #a40001;
+  }
+
+  .spotlight1 {
+    transform: rotate(20deg);
+  }
+
+  .spotlight2 {
+    transform: rotate(-20deg);
   }
 }
