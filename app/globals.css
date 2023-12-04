@@ -734,20 +734,18 @@ _:future,
   }
 }
 
-/* SAFARI STYLES */
-@media not all and (min-resolution: 0.001dpcm) {
-  @media {
-    .persona-box-date span,
-    .save-data {
-      font-family: Arial, Helvetica, sans-serif;
-    }
-  }
-}
-
 /* CHROME STYLES */
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
   .persona-box-date span,
   .save-data {
     font-family: fantasy;
+  }
+}
+
+/* SAFARI STYLES */
+@media not all and (min-resolution: 0.001dpcm) {
+  .persona-box-date span,
+  .save-data {
+    font-family: Arial, Helvetica, sans-serif !important;
   }
 }
