@@ -70,7 +70,7 @@ body,
     drop-shadow(-6px -1px 0px black) drop-shadow(11px 0px 0px black);
   letter-spacing: 1px;
   transform: perspective(85px) skewX(8deg) rotateY(7deg) translateZ(-5px);
-  font-family: fantasy;
+  font-family: fantasy, Arial, Helvetica, sans-serif;
   width: fit-content;
   /* -webkit-text-stroke-color: white;
   -webkit-text-stroke-width: 1px; */
@@ -731,13 +731,5 @@ _:future,
 
   .spotlight2 {
     transform: rotate(-20deg);
-  }
-}
-
-@media not all and (min-resolution: 0.001dpcm) {
-  @supports (-webkit-appearance: none) {
-    .persona-box-date span {
-      font-family: Arial, Helvetica, sans-serif;
-    }
   }
 }
