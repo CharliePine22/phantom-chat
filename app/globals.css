@@ -70,7 +70,7 @@ body,
     drop-shadow(-6px -1px 0px black) drop-shadow(11px 0px 0px black);
   letter-spacing: 1px;
   transform: perspective(85px) skewX(8deg) rotateY(7deg) translateZ(-5px);
-  font-family: fantasy, Arial, Helvetica, sans-serif;
+  /* font-family: fantasy, Arial, Helvetica, sans-serif; */
   width: fit-content;
   /* -webkit-text-stroke-color: white;
   -webkit-text-stroke-width: 1px; */
@@ -195,7 +195,7 @@ _:future,
   background-color: white;
   color: black;
   font-size: 1.4rem;
-  font-family: fantasy, Arial, Helvetica, sans-serif;
+  /* font-family: fantasy, Arial, Helvetica, sans-serif; */
   padding: 2px;
   border-top: 3px solid black;
   border-left: 3px solid black;
@@ -734,9 +734,18 @@ _:future,
   }
 }
 
+/* SAFARI STYLES */
 @media not all and (min-resolution: 0.001dpcm) {
   .persona-box-date span,
   .save-data {
     font-family: Arial, Helvetica, sans-serif;
+  }
+}
+
+/* CHROME STYLES */
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+  .persona-box-date span,
+  .save-data {
+    font-family: fantasy;
   }
 }
