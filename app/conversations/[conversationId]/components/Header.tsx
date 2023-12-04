@@ -30,7 +30,9 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
   const statusText = useMemo(() => {
     if (conversation.isGroup) {
       return conversation.users.map((user) => (
-        <p className='mr-4'>{user.name}</p>
+        <p key={user.id} className='mr-4'>
+          {user.name}
+        </p>
       ));
     }
 
