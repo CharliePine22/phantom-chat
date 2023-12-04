@@ -100,6 +100,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
         h-full
         lg:h-full
         overflow-y-auto 
+        overflow-x-hidden
         border-r 
         border-gray-200 
       `,

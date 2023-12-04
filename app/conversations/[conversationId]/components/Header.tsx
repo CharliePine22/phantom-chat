@@ -29,11 +29,15 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
   const isActive = members.indexOf(otherUser?.email!) !== -1;
   const statusText = useMemo(() => {
     if (conversation.isGroup) {
-      return `${conversation.users.length} members`;
+      return conversation.users.map((user) => (
+        <p className='mr-4'>{user.name}</p>
+      ));
     }
 
     return isActive ? 'Active' : 'Offline';
   }, [conversation, isActive]);
+
+  console.log(conversation.users);
 
   return (
     <>
@@ -45,7 +49,7 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
         flex 
         border-b-[1px] 
         sm:px-4 
-        py-3 
+        py-4 
         px-4 
         lg:px-6 
         justify-between 
@@ -75,10 +79,10 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
             <UserAvatar user={otherUser} />
           )}
           <div className='flex flex-col'>
-            <div className='text-white'>
+            <div className='text-white text-lg'>
               {conversation.name || otherUser.name}
             </div>
-            <div className='text-sm font-light text-neutral-500'>
+            <div className='text-sm font-light text-neutral-500 flex'>
               {statusText}
             </div>
           </div>
@@ -91,7 +95,6 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
             <div className='w-10 h-10 bg-red-800 text-white rounded-md flex items-center justify-center'>
               <IoTrash size={20} />
             </div>
-            {/* <div className='text-sm font-light text-neutral-600'>Delete</div> */}
           </div>
         </div>
       </div>

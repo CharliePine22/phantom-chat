@@ -86,9 +86,9 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
   };
 
   // Date conversions
-  const personaMonth = data?.lastMessageAt.getMonth() + 1;
-  const personaDate = data?.lastMessageAt.getDate();
-  const personaDay = convertNumberToDayOfWeek(data?.lastMessageAt.getDay());
+  const personaMonth = data?.lastMessageAt?.getMonth() + 1;
+  const personaDate = data?.lastMessageAt?.getDate();
+  const personaDay = convertNumberToDayOfWeek(data?.lastMessageAt?.getDay());
 
   console.log(data.lastMessageAt);
 

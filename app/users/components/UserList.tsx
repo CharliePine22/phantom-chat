@@ -59,7 +59,7 @@ const UserList: React.FC<UserListProps> = ({ items }) => {
             className='
               text-5xl 
               font-bold 
-              text-[#c00202]
+              text-white
               py-4
               persona-menu-font
             '
