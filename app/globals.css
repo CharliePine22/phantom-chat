@@ -367,6 +367,7 @@ _:future,
 
 .inner-persona-box {
   margin-left: 80px !important;
+  transform: translateZ(1px);
 }
 
 .persona-text-box:hover > .inner-persona-box {
