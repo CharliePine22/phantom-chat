@@ -195,7 +195,7 @@ _:future,
   background-color: white;
   color: black;
   font-size: 1.4rem;
-  font-family: fantasy;
+  font-family: fantasy, Arial, Helvetica, sans-serif;
   padding: 2px;
   border-top: 3px solid black;
   border-left: 3px solid black;
