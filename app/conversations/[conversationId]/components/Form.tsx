@@ -59,7 +59,7 @@ const Form = () => {
         {/* <HiPhoto size={30} className='text-[#FF0401]' /> */}
         <img
           src='/images/icons/camera.png'
-          className='h-[45px] w-[50px] hover:scale-110 hover:-rotate-6 duration-75'
+          className='h-[40px] w-[40px] mr-[15px] hover:scale-110 hover:-rotate-6 duration-75'
         />
       </CldUploadButton>
       <form

@@ -142,7 +142,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
         <div className='focus:outline-none'>
           <span className='absolute inset-0' aria-hidden='true' />
           <div className='flex justify-between items-center mb-1'>
-            <p className='text-[1.4rem]/[1.5rem] whitespace-nowrap conversation-box-name'>
+            <p className='text-[1.5rem]/[1.6rem] whitespace-nowrap conversation-box-name'>
               {data.name || otherUser.name}
             </p>
             {lastMessage?.createdAt && (

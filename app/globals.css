@@ -59,7 +59,8 @@ body,
   top: 2px;
   height: 80px;
   width: 85px;
-  box-shadow: -9px -3px 0px black, -9px 4px 0px black, 5px 4px 0px black;
+  box-shadow: -9px -3px 0px black, -9px 4px 0px black, 5px 4px 0px black,
+    6px -7px 0px black;
   border-width: 5px 2px 5px 3px;
   border-style: solid;
   border-color: white;
@@ -179,8 +180,8 @@ body,
 /** Date of last message in the conversations list page */
 .persona-box-date {
   position: absolute;
-  top: -28px;
-  left: 50px;
+  top: -22px;
+  left: 73px;
   z-index: 10;
   pointer-events: none;
 }
@@ -247,7 +248,7 @@ _:future,
 /** Wrapper and styling of each ongoing conversation in users list */
 .conversation-box {
   margin: 0 auto 45px;
-  width: 375px;
+  width: 335px;
   max-width: 100%;
   z-index: 0;
   color: white;
@@ -332,7 +333,7 @@ _:future,
 
 /** Message box wrapper of the chat messages in the chat section */
 .persona-text-box {
-  margin: 0 auto 110px;
+  margin: 0 auto 75px;
   max-width: 100%;
   position: relative;
   z-index: 0;

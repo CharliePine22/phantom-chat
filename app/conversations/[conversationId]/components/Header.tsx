@@ -60,7 +60,7 @@ const Header: React.FC<HeaderProps> = ({ conversation }) => {
         z-10
       '
       >
-        <div className='flex gap-3 items-center'>
+        <div className='flex gap-1.5 items-center'>
           <Link
             href='/conversations'
             className='
