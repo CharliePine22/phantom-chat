@@ -47,7 +47,8 @@ body,
   top: 2px;
   height: 80px;
   width: 85px;
-  box-shadow: -9px -3px 0px black, -9px 4px 0px black, 5px 4px 0px black;
+  box-shadow: -9px -6px 0px black, -9px 4px 0px black, -9px 6px 0px black,
+    6px -6px 0px black;
   border-width: 5px 2px 5px 3px;
   border-style: solid;
   border-color: white;
@@ -59,8 +60,8 @@ body,
   top: 2px;
   height: 80px;
   width: 85px;
-  box-shadow: -9px -3px 0px black, -9px 4px 0px black, 5px 4px 0px black,
-    6px -7px 0px black;
+  box-shadow: -9px -6px 0px black, -9px 4px 0px black, -9px 6px 0px black,
+    6px -6px 0px black;
   border-width: 5px 2px 5px 3px;
   border-style: solid;
   border-color: white;
