@@ -118,10 +118,11 @@ const MessageBox: React.FC<MessageBoxProps> = ({ data, isLast, setCoords }) => {
             <Image
               alt='Image'
               height={150}
-              width={150}
+              width={200}
               onClick={() => setImageModalOpen(true)}
               src={data.image}
               className='
+              h-[150px]
                 object-cover 
                 cursor-pointer 
                 hover:scale-110 
