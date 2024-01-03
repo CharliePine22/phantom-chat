@@ -47,7 +47,9 @@ const MobileFooter: React.FC<MobileSidebarProps> = ({ currentUser }) => {
           onClick={() => setSettingsOpen(true)}
           className='cursor-pointer hover:opacity-75 transition px-4'
         >
-          <UserAvatar user={currentUser} />
+          <img src='/images/icons/settings-gear.png' />
+
+          {/* <UserAvatar user={currentUser} /> */}
         </div>
         {routes.map((route) => (
           <MobileItem

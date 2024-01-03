@@ -119,6 +119,13 @@ const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
 
   return (
     <div className='flex-1 overflow-y-auto overflow-x-hidden relative message-body z-10 bg-[#A40001]'>
+      {messages.length == 0 && (
+        <div className='h-[90%] w-full flex items-center justify-center text-white text-[1.7rem] text-center font-semibold	px-[15px]'>
+          <h3 style={{ textShadow: '-2px 3px 2px black' }}>
+            Reach out and say hello to your fellow Phantom Thief!
+          </h3>
+        </div>
+      )}
       {messages.map((message, i) => (
         <MessageBox
           isLast={i === messages.length - 1}

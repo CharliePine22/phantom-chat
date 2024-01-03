@@ -1,6 +1,7 @@
 'use client';
 
 import DesktopItem from './DesktopItem';
+import MobileItem from './MobileItem';
 import useRoutes from '@/app/hooks/useRoutes';
 import SettingsModal from './SettingsModal';
 import { useState } from 'react';
@@ -30,7 +31,7 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {
         lg:left-0 
         lg:z-40 
         lg:w-20 
-        xl:px-6
+        xl:px-0
         lg:overflow-y-auto 
         lg:bg-black
         lg:border-r-[1px]
@@ -43,13 +44,14 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {
         <nav className='mt-4 flex flex-col justify-between'>
           <ul role='list' className='flex flex-col items-center space-y-1'>
             {routes.map((item) => (
-              <DesktopItem
+              <MobileItem
                 key={item.label}
                 href={item.href}
-                label={item.label}
-                icon={item.temp}
+                // label={item.label}
+                icon={item.icon}
                 active={item.active}
                 onClick={item.onClick}
+                title={item.title}
               />
             ))}
           </ul>
@@ -57,9 +59,14 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {
         <nav className='mt-4 flex flex-col justify-between items-center'>
           <div
             onClick={() => setIsOpen(true)}
-            className='cursor-pointer hover:opacity-75 transition'
+            className='cursor-pointer hover:opacity-75 transition bg-transparent'
           >
-            <UserAvatar user={currentUser} />
+            <img
+              className='h-[50px] w-[50px]'
+              src='/images/icons/settings-gear.png'
+            />
+
+            {/* <UserAvatar user={currentUser} /> */}
           </div>
         </nav>
       </div>

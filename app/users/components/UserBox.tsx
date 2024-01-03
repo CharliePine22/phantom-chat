@@ -51,7 +51,7 @@ const UserBox: React.FC<UserBoxProps> = ({ data }) => {
           <div className='focus:outline-none'>
             <span className='absolute inset-0' aria-hidden='true' />
             <div className='absolute bottom-[-32px] left-[8px] flex justify-center items-center mb-1 w-full'>
-              <p className='text-2xl font-medium text-white whitespace-nowrap friend-name'>
+              <p className='text-xl font-medium text-white whitespace-nowrap friend-name'>
                 {data.name}
               </p>
             </div>

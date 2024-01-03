@@ -109,26 +109,6 @@ const ConversationList: React.FC<ConversationListProps> = ({
       >
         <div className='px-5 pb-[4.5rem] lg:pb-0'>
           <div className='flex justify-between mb-[6rem] sm:mb-[6.5rem] pt-6 relative'>
-            <div className='text-2xl z-10 font-bold text-neutral-800 persona-IM -rotate-[26deg] text-[5rem] translate-y-[10px] cursor-default fixed'>
-              <span
-                className='text-[#B40001]'
-                style={{
-                  filter:
-                    'drop-shadow(2px -5px 0px black) drop-shadow(-5px 0px 0px black) drop-shadow(4px 5px 0px black) drop-shadow(-3px -1px 0px black)',
-                }}
-              >
-                I
-              </span>
-              <span
-                style={{
-                  filter:
-                    'drop-shadow(2px -2px 0px black) drop-shadow(-4px 0px 0px black) drop-shadow(2px 6px 0px black) drop-shadow(3px -1px 0px black)',
-                }}
-                className='text-slate-50'
-              >
-                M
-              </span>
-            </div>
             <div
               onClick={() => setIsModalOpen(true)}
               className='
@@ -140,6 +120,7 @@ const ConversationList: React.FC<ConversationListProps> = ({
                 hover:opacity-75 
                 transition
                 fixed
+                z-50
                 right-[30px]
               '
             >

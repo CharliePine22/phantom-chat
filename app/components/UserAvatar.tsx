@@ -23,7 +23,6 @@ const UserAvatar: React.FC<AvatarProps> = ({ user }) => {
         w-[50px]
         md:h-14 
         md:w-14
-        bg-[#ff0000]
         '
       >
         <Image

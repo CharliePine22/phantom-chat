@@ -162,7 +162,7 @@ const ConversationBox: React.FC<ConversationBoxProps> = ({
             className={clsx(
               `
               truncate 
-              text-[1.2rem]/[1.4rem]
+              text-[1rem]/[1.4rem]
               font-medium
               `,
               hasSeen ? 'text-gray-400' : 'text-white'
