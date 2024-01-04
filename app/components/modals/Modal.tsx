@@ -72,7 +72,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
                   w-full
                   sm:my-8 
                   sm:w-full 
-                  sm:max-w-lg 
+                  sm:max-w-2xl
                   sm:p-6
                 "
               >

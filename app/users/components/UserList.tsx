@@ -19,6 +19,9 @@ const UserList: React.FC<UserListProps> = ({ items }) => {
   const requests = [
     { name: 'Cj The Coolest Kid' },
     { name: 'Jessica' },
+    { name: 'Ryan' },
+    { name: 'Jr' },
+    { name: 'Tony' },
     { name: 'Yuna' },
   ];
   const [friendRequests, setFriendRequests] = useState(requests);
@@ -126,12 +129,13 @@ const UserList: React.FC<UserListProps> = ({ items }) => {
          transition
          fixed
          right-[85px]
-         top-[22px]'
+         top-[22px]
+         '
           onClick={() => setRequestModalOpen(true)}
         >
           <IoIosNotifications />
           <div className='flex justify-center items-center h-[20px] w-[20px] text-center bg-red absolute -top-[13px] -right-[7px] bg-[#8B0000] text-white font-black'>
-            <span className='friend-name text-[.9rem]'>
+            <span className='text-[.9rem]'>
               {friendRequests.length}
             </span>
           </div>

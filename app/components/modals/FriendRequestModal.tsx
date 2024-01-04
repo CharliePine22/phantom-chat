@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Modal from './Modal';
 import { CiCircleCheck, CiCircleRemove } from 'react-icons/ci';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
@@ -7,8 +7,8 @@ import { toast } from 'react-hot-toast';
 interface Props {
   requestModalOpen?: boolean;
   onClose: () => void;
-  requestsList: [];
-  updateRequestList: (list: { name: string }[]) => void;
+  requestsList: { name: string } [];
+  updateRequestList: (list: { name: string } []) => void;
 }
 
 const FriendRequestModal: React.FC<Props> = ({
@@ -24,9 +24,9 @@ const FriendRequestModal: React.FC<Props> = ({
     }
   ): void => {
     if (action == 'ACCEPT') {
-      toast.success('Friend request accepted!');
+      toast.success(`${friendInfo.name} added to friends list`);
     } else {
-      toast.success('Freind request rejected!');
+      toast.success(`${friendInfo.name} isn't cool enough!`);
     }
     let updatedRequests = requestsList.filter(function (obj) {
       return obj.name !== friendInfo.name;
@@ -37,7 +37,7 @@ const FriendRequestModal: React.FC<Props> = ({
   return (
     <Modal isOpen={requestModalOpen} onClose={onClose}>
       <div className='request-wrapper'>
-        <h2 className='conversation-box-name text-4xl text-center text-white'>
+        <h2 className='conversation-box-name text-5xl text-center text-white'>
           Friend Requests
         </h2>
         <div className='request-list-wrapper max-h-80	overflow-y-scroll mt-2'>
@@ -50,11 +50,11 @@ const FriendRequestModal: React.FC<Props> = ({
                     timeout={700}
                     classNames='friend-request-item'
                   >
-                    <li className='friend-request-item persona-IM text-2xl w-full flex justify-between my-2 py-4 pl-2'>
+                    <li className='friend-request-item persona-IM text-3xl w-full flex justify-between my-4 py-4 pl-2'>
                       <p className='min-w-[75px] text-white'>{request.name}</p>
                       <div className='requests-actions flex justify-center items-center'>
                         <button
-                          className='w-[30px] h-[30px] mx-2.5 check-button drop-shadow-[-2px_1px_1px_rgba(0,0,0,0.8)] hover:drop-shadow-[-2px_3px_2px_rgba(0,0,0,0.7)]'
+                          className='w-[35px] h-[35px] mx-2.5 check-button drop-shadow-[-2px_1px_1px_rgba(0,0,0,0.8)] hover:drop-shadow-[-2px_3px_2px_rgba(0,0,0,0.7)]'
                           onClick={() =>
                             determineFriendRequestStatus('ACCEPT', request)
                           }
@@ -62,7 +62,7 @@ const FriendRequestModal: React.FC<Props> = ({
                           <CiCircleCheck className='bg-white rounded-full	text-green-400 transition-all mx-auto h-full w-full' />
                         </button>
                         <button
-                          className='w-[30px] h-[30px] mx-2.5 deny-button drop-shadow-[-2px_1px_1px_rgba(0,0,0,0.8)] hover:drop-shadow-[-2px_3px_2px_rgba(0,0,0,0.7)]'
+                          className='w-[35px] h-[35px] mx-2.5 deny-button drop-shadow-[-2px_1px_1px_rgba(0,0,0,0.8)] hover:drop-shadow-[-2px_3px_2px_rgba(0,0,0,0.7)]'
                           onClick={() =>
                             determineFriendRequestStatus('accept', request)
                           }
