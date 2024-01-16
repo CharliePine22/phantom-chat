@@ -16,7 +16,7 @@ export default async function ConversationsLayout({
     // @ts-expect-error Server Component
     <Sidebar>
       <div className='h-full bg-[100%_50%] bg-cover lg:bg-[length:100%_100%] persona-bg'>
-        {conversations?.length > 0 ? (
+        {conversations && conversations.length > 0 ? (
           <ConversationList
             users={users}
             title='Messages'

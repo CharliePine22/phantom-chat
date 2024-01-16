@@ -20,9 +20,8 @@ model User {
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
 
-  friendIds      String[]  @db.ObjectId
-  friendsList    Account[] @relation("Friends", fields: [friendIds], references: [id])
-  friendRequests Account[] @relation("Requests", fields: [friendIds], references: [id])
+  friendsList    String[] @db.ObjectId
+  friendRequests String[] @db.ObjectId
 
   conversationIds String[]       @db.ObjectId
   conversations   Conversation[] @relation(fields: [conversationIds], references: [id])
@@ -48,9 +47,9 @@ model Account {
   id_token          String? @db.String
   session_state     String?
 
-  friendsIds     String[] @db.ObjectId
-  friendsList    User[]   @relation("Friends", fields: [friendsIds], references: [id])
-  friendRequests User[]   @relation("Requests", fields: [friendsIds], references: [id])
+  // friendIds      String[] @db.ObjectId
+  // friendsList    User[]   @relation("Friends", fields: [friendIds], references: [id])
+  // friendRequests User[]   @relation("Requests", fields: [friendIds], references: [id])
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 

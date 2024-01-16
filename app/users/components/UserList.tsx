@@ -11,41 +11,20 @@ import AddFriendModal from '@/app/components/modals/AddFriendModal';
 
 interface UserListProps {
   items: User[];
+  user: any;
 }
 
-const UserList: React.FC<UserListProps> = ({ items }) => {
+const UserList: React.FC<UserListProps> = ({ items, user }) => {
   const [requestModalOpen, setRequestModalOpen] = useState(false);
   const [addFriendOpen, setAddFriendOpen] = useState(false);
-  const requests = [
-    { name: 'Cj The Coolest Kid' },
-    { name: 'Jessica' },
-    { name: 'Ryan' },
-    { name: 'Jr' },
-    { name: 'Tony' },
-    { name: 'Yuna' },
-  ];
-  const [friendRequests, setFriendRequests] = useState(requests);
-  // const addFriendship = async (userIdA: string, userIdB: string) => {
-  //   await prisma.user.update({
-  //     where: {id: userIdA},
-  //     data: {friends: {connect: [{id: userIdB}]}},
-  //   });
-  //   await prisma.user.update({
-  //     where: {id: userIdB},
-  //     data: {friends: {connect: [{id: userIdA}]}},
-  //   });
-  // };
+  const incomingFriendRequests = user.friendRequests;
 
-  // const removeFriendship = async (userIdA: string, userIdB: string) => {
-  //   await prisma.user.update({
-  //     where: {id: userIdA},
-  //     data: {friends: {disconnect: [{id: userIdB}]}},
-  //   });
-  //   await prisma.user.update({
-  //     where: {id: userIdB},
-  //     data: {friends: {disconnect: [{id: userIdA}]}},
-  //   });
-  // }
+  const friendRequestIds = items?.filter((item) => {
+    return incomingFriendRequests.includes(item.id);
+  });
+
+  const [friendRequests, setFriendRequests] = useState(friendRequestIds);
+  console.log(friendRequests);
 
   return (
     <aside
@@ -110,7 +89,7 @@ const UserList: React.FC<UserListProps> = ({ items }) => {
          hover:opacity-75 
          transition
          fixed
-         right-[30px]
+         right-[20px]
          top-[22px]'
           onClick={() => setAddFriendOpen(true)}
         >
@@ -128,16 +107,14 @@ const UserList: React.FC<UserListProps> = ({ items }) => {
          hover:opacity-75 
          transition
          fixed
-         right-[85px]
+         right-[70px]
          top-[22px]
          '
           onClick={() => setRequestModalOpen(true)}
         >
           <IoIosNotifications />
           <div className='flex justify-center items-center h-[20px] w-[20px] text-center bg-red absolute -top-[13px] -right-[7px] bg-[#8B0000] text-white font-black'>
-            <span className='text-[.9rem]'>
-              {friendRequests.length}
-            </span>
+            <span className='text-[.9rem]'>{friendRequests.length}</span>
           </div>
         </div>
         <div className='flex justify-between flex-wrap'>

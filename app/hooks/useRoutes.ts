@@ -11,7 +11,6 @@ import contactsIcon from '../../public/images/icons/contacts.png';
 const useRoutes = () => {
   const pathname = usePathname();
   const { conversationId } = useConversation();
-  console.log(messageIcon)
 
   const routes = useMemo(() => [
     { 

@@ -719,7 +719,7 @@ body,
 /* TABLET STYLING */
 @media screen and (max-width: 768px) {
   .message-avatar-wrapper img {
-    height: 86px !important;
+    height: 65px !important;
   }
 
   .message-left {

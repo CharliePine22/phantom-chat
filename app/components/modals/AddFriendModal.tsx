@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import Modal from './Modal';
 import Input from '../inputs/Input';
-import Select from '../inputs/Select';
+import Button from '../Button';
+
+import axios from 'axios';
+import { useRouter } from 'next/navigation';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 
 interface Props {
   friendModalOpen?: boolean;
@@ -10,21 +15,32 @@ interface Props {
 
 const AddFriendModal: React.FC<Props> = ({ friendModalOpen, onClose }) => {
   const [isLoading, setIsLoading] = useState(false);
-  const [value, setValue] = useState();
+  const router = useRouter();
 
-  const onSubmit: SubmitHandler<FieldValues> = () => {
-    console.log('TEST FRIEND REQUEST');
-    // axios
-    //   .post('/api/conversations', {
-    //     ...data,
-    //     isGroup: true,
-    //   })
-    //   .then(() => {
-    //     router.refresh();
-    //     onClose();
-    //   })
-    //   .catch(() => toast.error('Something went wrong!'))
-    //   .finally(() => setIsLoading(false));
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FieldValues>({
+    defaultValues: {
+      name: '',
+    },
+  });
+
+  const onSubmit: SubmitHandler<FieldValues> = (data) => {
+    axios
+      .post('/api/friends', {
+        ...data,
+      })
+      .then(() => {
+        router.refresh();
+        toast.success('Friend request sent!');
+        onClose();
+      })
+      .catch((error) => {
+        toast.error(error.response.data);
+      })
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -36,18 +52,9 @@ const AddFriendModal: React.FC<Props> = ({ friendModalOpen, onClose }) => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className='space-y-12'>
             <div className='border-b border-gray-900/10 pb-12'>
-              <h2
-                className='
-                text-xl
-                font-semibold 
-                leading-7 
-                text-white
-              '
-              >
-                Start a group chat!
-              </h2>
               <p className='mt-1 text-sm leading-6 text-white'>
-                Create a chat with more than 2 people.
+                Type the name of the person you'd like to send a friend request
+                to.
               </p>
               <div className='mt-8 flex flex-col gap-y-8 text-white'>
                 <Input
@@ -57,20 +64,6 @@ const AddFriendModal: React.FC<Props> = ({ friendModalOpen, onClose }) => {
                   errors={errors}
                   required
                   register={register}
-                />
-                <Select
-                  disabled={isLoading}
-                  label='Members'
-                  options={users.map((user) => ({
-                    value: user.id,
-                    label: user.name,
-                  }))}
-                  onChange={(value) =>
-                    setValue('members', value, {
-                      shouldValidate: true,
-                    })
-                  }
-                  value={members}
                 />
               </div>
             </div>
@@ -85,7 +78,7 @@ const AddFriendModal: React.FC<Props> = ({ friendModalOpen, onClose }) => {
               Cancel
             </Button>
             <Button disabled={isLoading} type='submit'>
-              Create
+              Send Request
             </Button>
           </div>
         </form>
