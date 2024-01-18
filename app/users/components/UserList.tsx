@@ -18,13 +18,17 @@ const UserList: React.FC<UserListProps> = ({ items, user }) => {
   const [requestModalOpen, setRequestModalOpen] = useState(false);
   const [addFriendOpen, setAddFriendOpen] = useState(false);
   const incomingFriendRequests = user.friendRequests;
+  const friendListIds = user.friendsList;
+  const userFriendsList = items.filter((item) =>
+    friendListIds.includes(item.id)
+  );
 
   const friendRequestIds = items?.filter((item) => {
     return incomingFriendRequests.includes(item.id);
   });
 
   const [friendRequests, setFriendRequests] = useState(friendRequestIds);
-  console.log(friendRequests);
+  const [friendsList, setFriendsList] = useState(userFriendsList);
 
   return (
     <aside
@@ -118,7 +122,7 @@ const UserList: React.FC<UserListProps> = ({ items, user }) => {
           </div>
         </div>
         <div className='flex justify-between flex-wrap'>
-          {items.map((item) => (
+          {userFriendsList.map((item) => (
             <UserBox key={item.id} data={item} />
           ))}
         </div>

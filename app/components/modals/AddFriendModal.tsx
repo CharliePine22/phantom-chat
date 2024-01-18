@@ -30,7 +30,8 @@ const AddFriendModal: React.FC<Props> = ({ friendModalOpen, onClose }) => {
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
     axios
       .post('/api/friends', {
-        ...data,
+        friendInfo: { name: data.name },
+        method: 'REQUEST',
       })
       .then(() => {
         router.refresh();
@@ -38,6 +39,7 @@ const AddFriendModal: React.FC<Props> = ({ friendModalOpen, onClose }) => {
         onClose();
       })
       .catch((error) => {
+        console.log(error);
         toast.error(error.response.data);
       })
       .finally(() => setIsLoading(false));
