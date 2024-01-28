@@ -56,15 +56,28 @@ export async function POST(request: Request) {
         acceptFriendRequest,
         updateOtherUser,
       ]);
-      console.log(updateFriendsLists);
       return NextResponse.json(updateFriendsLists);
     } catch (error) {
       return new NextResponse('Something went wrong.', { status: 500 });
     }
-  }
+  } else if(body.method == 'REJECT') {
+    const rejectFriendRequest = await prisma.user.update({
+      where: {
+        id: currentUser?.id,
+      },
+      data: {
+        friendRequests: {
+          set: currentUser?.friendRequests.filter(
+            (request) => request !== friendId
+          ),
+        }
+      },
+    });
 
+    return NextResponse.json(rejectFriendRequest);
+  } else {
+  // Sending a Friend Request
   try {
-    // Sending a Friend Request
     if (currentUser && otherUserFriendsList.includes(currentUser.id)) {
       return new NextResponse('User already on your friends list!', {
         status: 400,
@@ -94,4 +107,5 @@ export async function POST(request: Request) {
   } catch (error) {
     return new NextResponse('Something went wrong.', { status: 500 });
   }
+}
 }

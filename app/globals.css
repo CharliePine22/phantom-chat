@@ -75,8 +75,13 @@ body,
 @keyframes sliceItem {
 }
 
+.request-list-wrapper {
+  scrollbar-width: none;
+}
+
 .request-list-wrapper::-webkit-scrollbar {
   display: none;
+  scrollbar-width: none;
 }
 
 .request-list-wrapper ul li p {

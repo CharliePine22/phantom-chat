@@ -92,7 +92,7 @@ const UserList: React.FC<UserListProps> = ({ items, user }) => {
          cursor-pointer 
          hover:opacity-75 
          transition
-         fixed
+         absolute
          right-[20px]
          top-[22px]'
           onClick={() => setAddFriendOpen(true)}
@@ -110,7 +110,7 @@ const UserList: React.FC<UserListProps> = ({ items, user }) => {
          cursor-pointer 
          hover:opacity-75 
          transition
-         fixed
+         absolute
          right-[70px]
          top-[22px]
          '

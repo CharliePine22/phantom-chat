@@ -45,7 +45,21 @@ const FriendRequestModal: React.FC<Props> = ({
         })
         .finally(() => setIsLoading(false));
     } else {
-      toast.success(`${friendInfo.name} isn't cool enough!`);
+      axios
+        .post('/api/friends', {
+          friendInfo,
+          method: 'REJECT',
+        })
+        .then(() => {
+          router.refresh();
+          toast.success(`${friendInfo.name} friend request rejected.`);
+          onClose();
+        })
+        .catch((error) => {
+          toast.error(error.response.data);
+        })
+        .finally(() => setIsLoading(false));
+      // toast.success(`${friendInfo.name} isn't cool enough!`);
     }
     let updatedRequests = requestsList.filter(function (obj) {
       return obj.name !== friendInfo.name;
@@ -56,7 +70,7 @@ const FriendRequestModal: React.FC<Props> = ({
   return (
     <Modal isOpen={requestModalOpen} onClose={onClose}>
       <div className='request-wrapper'>
-        <h2 className='conversation-box-name text-5xl text-center text-white'>
+        <h2 className='conversation-box-name text-4xl sm:text-5xl text-center text-white'>
           Friend Requests
         </h2>
         <div className='request-list-wrapper max-h-80	overflow-y-scroll mt-2'>
@@ -93,7 +107,7 @@ const FriendRequestModal: React.FC<Props> = ({
                   </CSSTransition>
                 ))
               ) : (
-                <div className='my-4 text-center font-black text-[1.2rem]'>
+                <div className='my-8 text-center font-black text-white text-[1.2rem]'>
                   No new requests
                 </div>
               )}
